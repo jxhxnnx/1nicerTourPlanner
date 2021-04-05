@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.deps.json
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\ref\1nicerTourPlanner.DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\ref\1nicerTourPlanner.DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.DataAccessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.pdb

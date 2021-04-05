@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>_1nicerTourPlanner.DataAccessLayer</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\1nicerTourPlanner.Models\1nicerTourPlanner.Models.csproj" />
+  </ItemGroup>
+
+</Project>

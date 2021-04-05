@@ -1,0 +1,12 @@
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.deps.json
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\bin\Debug\net5.0-windows\ref\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\ref\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Models\obj\Debug\net5.0-windows\1nicerTourPlanner.Models.pdb

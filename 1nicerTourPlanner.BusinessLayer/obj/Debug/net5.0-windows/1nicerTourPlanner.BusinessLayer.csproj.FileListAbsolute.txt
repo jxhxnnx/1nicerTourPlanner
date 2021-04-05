@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.deps.json
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\ref\1nicerTourPlanner.BusinessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\bin\Debug\net5.0-windows\1nicerTourPlanner.Models.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\ref\1nicerTourPlanner.BusinessLayer.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.BusinessLayer\obj\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.pdb

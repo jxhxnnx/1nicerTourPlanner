@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "1nicerTourPlanner.BusinessLayer/1.0.0": {
+        "dependencies": {
+          "1nicerTourPlanner.DataAccessLayer": "1.0.0",
+          "1nicerTourPlanner.Models": "1.0.0"
+        },
+        "runtime": {
+          "1nicerTourPlanner.BusinessLayer.dll": {}
+        }
+      },
+      "1nicerTourPlanner.DataAccessLayer/1.0.0": {
+        "dependencies": {
+          "1nicerTourPlanner.Models": "1.0.0"
+        },
+        "runtime": {
+          "1nicerTourPlanner.DataAccessLayer.dll": {}
+        }
+      },
+      "1nicerTourPlanner.Models/1.0.0": {
+        "runtime": {
+          "1nicerTourPlanner.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "1nicerTourPlanner.BusinessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "1nicerTourPlanner.DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "1nicerTourPlanner.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
