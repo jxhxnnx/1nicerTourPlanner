@@ -25,7 +25,7 @@ namespace _1nicerTourPlanner.ViewModels
             }
             set
             {
-                if((currentTour != value) && (currentTour != null))
+                if(currentTour != value)
                 {
                     currentTour = value;
                     RaisePropertyChangedEvent(nameof(CurrentTour));

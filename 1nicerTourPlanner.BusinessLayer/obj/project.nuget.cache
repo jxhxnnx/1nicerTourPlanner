@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "J4HxkYKGM4+TESxYuQqIj5ZR6C3NsCetIwU2D+F2vG99tLWw6puNBEfT84u6Upt1GDj0hyjIIsRvBnGFU54B1A==",
+  "dgSpecHash": "X8AWBK8IBlRplMzNmrEFjDEUcTCXPSZoWmNY1yIxNrqdT7OVf5U6KBvRxRQ3criPAfpiKe3clSIpspzFkxHjAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.BusinessLayer\\1nicerTourPlanner.BusinessLayer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\npgsql\\5.0.4\\npgsql.5.0.4.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

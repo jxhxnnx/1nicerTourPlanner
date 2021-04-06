@@ -27,3 +27,6 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ref\1nicerTourPlanner.dll
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\1nicerTourPlanner.pdb
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\1nicerTourPlanner.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewTourWindow.g.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewTourWindow.baml
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\bin\Debug\net5.0-windows\Npgsql.dll
