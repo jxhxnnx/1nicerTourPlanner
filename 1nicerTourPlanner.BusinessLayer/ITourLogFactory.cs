@@ -5,7 +5,7 @@ namespace _1nicerTourPlanner.BusinessLayer
 {
     public interface ITourLogFactory
     {
-        IEnumerable<TourLog> GetLogs();
-        IEnumerable<TourLog> Search(string logName, bool caseSensitive = false);
+        IEnumerable<TourLog> GetLogs(int tourID);
+        IEnumerable<TourLog> Search(string logName, int tourID, bool caseSensitive = false);
     }
 }

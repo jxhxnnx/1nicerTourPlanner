@@ -8,37 +8,45 @@ namespace _1nicerTourPlanner.DataAccessLayer
     public class DB : IDataAccess
     {
         private string connectionString;
+        NpgsqlConnection con;
         public DB()
         {
 
             //get connection data e.g. from config file
             connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;";
-            //GetConnection(connectionString);
+            con = GetConnection(connectionString);
         }
         private static NpgsqlConnection GetConnection(string connectionString)
         {
             return new NpgsqlConnection(@connectionString);
         }
-        public List<TourLog> GetLogs()
+        public List<TourLog> GetLogs(int tourID)
         {
-            //select SQL query
-
-
-            return new List<TourLog>()
+            List<TourLog> logList = new List<TourLog>();
+            con.Open();
+            var query = "SELECT date, distance, tot_time, rating, name FROM public.\"Logs\" where tour_id = @tourID;";
+            using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("tourID", tourID);
+            cmd.Prepare();
+            using NpgsqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                new TourLog(){Name = "Log1"},
-                new TourLog(){Name = "Log2"},
-                new TourLog(){Name = "Log3"},
-                new TourLog(){Name = "Log4"},
-                new TourLog(){Name = "Log5"}
-            };
+                logList.Add(new TourLog()
+                {
+                    Date = reader.GetDateTime(0),
+                    Distance = reader.GetInt32(1),
+                    TotalTime = reader.GetInt32(2),
+                    Rating = reader.GetInt32(3),
+                    Name = reader.GetString(4)
+                });
+            }
+            con.Close();
+            return logList;
         }
 
         public List<Tour> GetTours()
         {
             List<Tour> tourList = new List<Tour>();
-            
-            using NpgsqlConnection con = GetConnection(connectionString);
             con.Open();
             var query = "SELECT name, description, distance, tour_id FROM public.\"Tours\";";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
@@ -53,6 +61,30 @@ namespace _1nicerTourPlanner.DataAccessLayer
             con.Close();
 
             return tourList;  
+        }
+
+        public void AddTour(string name, string description, float distance)
+        {
+            con.Open();
+            var query = "INSERT INTO public.\"Tours\"(name, description, distance) VALUES(@name, @description, @distance); ";
+            using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("name", name);
+            cmd.Parameters.AddWithValue("description", description);
+            cmd.Parameters.AddWithValue("distance", distance);
+            cmd.Prepare();
+            cmd.ExecuteReader();
+            con.Close();
+        }
+
+        public void DeleteTour(Tour currentTour)
+        {
+            con.Open();
+            var query = "DELETE FROM public.\"Tours\" WHERE name = @name; ";
+            using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("name", currentTour.Name);
+            cmd.Prepare();
+            cmd.ExecuteReader();
+            con.Close();
         }
     }
 }

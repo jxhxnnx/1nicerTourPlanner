@@ -15,9 +15,9 @@ namespace _1nicerTourPlanner.DataAccessLayer
             //check which datasource to use
             dataAccess = new DB();
         }
-        public List<TourLog> GetLogs()
+        public List<TourLog> GetLogs(int tourID)
         {
-            return dataAccess.GetLogs();
+            return dataAccess.GetLogs(tourID);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
             //get file path from config file
             filePath = "...";
         }
-        public List<TourLog> GetLogs()
+        public List<TourLog> GetLogs(int tourID)
         {
             //get items from file system
             return new List<TourLog>()

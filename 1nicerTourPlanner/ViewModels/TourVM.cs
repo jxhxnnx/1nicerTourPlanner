@@ -2,7 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.Models;
+using _1nicerTourPlanner.ViewModels;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -10,13 +12,17 @@ namespace _1nicerTourPlanner.ViewModels
     {
         private ITourFactory tourFactory;
         private Tour currentTour;
+
+        private ITourLogFactory tourLogFactory;
         private string searchName;
+        public DB db = new DB();
 
         private ICommand searchCommand;
         private ICommand clearCommand;
         public ICommand SearchCommand => searchCommand ??= new RelayCommand(Search);
         public ICommand ClearCommand => clearCommand ??= new RelayCommand(Clear);
         public ObservableCollection<Tour> Tours { get; set; }
+        public ObservableCollection<TourLog> Logs { get; set; }
         public Tour CurrentTour
         {
             get
@@ -47,6 +53,7 @@ namespace _1nicerTourPlanner.ViewModels
         public TourVM()
         {
             tourFactory = TourFactory.GetInstance();
+            tourLogFactory = TourLogFactory.GetInstance();
             InitListBox();
         }
 
@@ -80,5 +87,25 @@ namespace _1nicerTourPlanner.ViewModels
 
             FillListBox();
         }
+
+        private ICommand newTourCommand;
+        public ICommand NewTourCommand => newTourCommand ??= new RelayCommand(NewTour);
+
+        private void NewTour(object commandParameter)
+        {
+            NewTourWindow newWindow = new NewTourWindow();
+            newWindow.Show();
+        }
+
+        private ICommand deleteTourCommand;
+        public ICommand DeleteTourCommand => deleteTourCommand ??= new RelayCommand(DeleteTour);
+
+        private void DeleteTour(object commandParameter)
+        {
+            db.DeleteTour(currentTour);
+            Tours.Clear();
+            FillListBox();
+        }
+
     }
 }

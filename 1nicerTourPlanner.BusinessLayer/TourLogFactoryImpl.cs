@@ -9,14 +9,14 @@ namespace _1nicerTourPlanner.BusinessLayer
     internal class TourLogFactoryImpl : ITourLogFactory
     {
         private TourLogDAO tourLogDAO = new TourLogDAO();
-        public IEnumerable<TourLog> GetLogs()
+        public IEnumerable<TourLog> GetLogs(int tourID)
         {
-            return tourLogDAO.GetLogs();
+            return tourLogDAO.GetLogs(tourID);
         }
 
-        public IEnumerable<TourLog> Search(string logName, bool caseSensitive = false)
+        public IEnumerable<TourLog> Search(string logName, int tourID, bool caseSensitive = false)
         {
-            IEnumerable<TourLog> logs = GetLogs();
+            IEnumerable<TourLog> logs = GetLogs(tourID);
             if(caseSensitive)
             {
                 logs.Where(x => x.Name.Contains(logName));
