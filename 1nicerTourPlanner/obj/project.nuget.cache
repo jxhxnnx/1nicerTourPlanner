@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SkqrHK6UfSlNNQPFcJ62Rwwk03kZQOwmfZ+yF9FuZtWnGq0MSHTuJ349dnVixYld1sfnPyiLpZ0kEVt9gjQS8A==",
+  "dgSpecHash": "PO6ZMdoSEEOYxgdqYkAVDGNR5c/XhtMkEfaNf+2j0+a+hCNjBee3hHmaR0mgE2BFKs0SSSiCrat129C6vRC6vQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\1nicerTourPlanner.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\npgsql\\5.0.4\\npgsql.5.0.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],

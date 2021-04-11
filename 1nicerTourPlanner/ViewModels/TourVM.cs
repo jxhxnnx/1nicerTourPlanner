@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using _1nicerTourPlanner.BusinessLayer;
@@ -12,8 +13,6 @@ namespace _1nicerTourPlanner.ViewModels
     {
         private ITourFactory tourFactory;
         private Tour currentTour;
-
-        private ITourLogFactory tourLogFactory;
         private string searchName;
         public DB db = new DB();
 
@@ -53,7 +52,6 @@ namespace _1nicerTourPlanner.ViewModels
         public TourVM()
         {
             tourFactory = TourFactory.GetInstance();
-            tourLogFactory = TourLogFactory.GetInstance();
             InitListBox();
         }
 
@@ -84,7 +82,6 @@ namespace _1nicerTourPlanner.ViewModels
         {
             Tours.Clear();
             SearchName = "";
-
             FillListBox();
         }
 
@@ -107,5 +104,13 @@ namespace _1nicerTourPlanner.ViewModels
             FillListBox();
         }
 
+        private ICommand getLogsCommand;
+        public ICommand GetLogsCommand => getLogsCommand ??= new RelayCommand(GetLogs);
+
+        private void GetLogs(object commandParameter)
+        {
+            TourLogWindow logWindow = new TourLogWindow();
+            logWindow.Show();
+        }
     }
 }

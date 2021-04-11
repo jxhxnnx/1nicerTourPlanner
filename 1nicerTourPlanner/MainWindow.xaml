@@ -62,7 +62,7 @@
                 <StackPanel Grid.Column="0" Margin="5,5,0,0" Width="200">
                     <TextBlock Text="Tour List:" Margin="5,0,5,0" VerticalAlignment="Center" />
                     <ListBox x:Name="listTours"
-                                ItemsSource="{Binding Tours, Mode=TwoWay}"
+                                ItemsSource="{Binding Tours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 SelectedItem="{Binding CurrentTour, Mode=TwoWay}"
                                 DisplayMemberPath="Name"
                                 Margin="0,5,0,0" />
@@ -111,21 +111,7 @@
                     <Button Width="70" Command="{Binding GetLogsCommand}" Margin="5,10,0,5">
                         Get Logs
                     </Button>
-                    <DataGrid AutoGenerateColumns="False"
-                              Margin="5,10,0,0"
-                              HorizontalAlignment="Left" 
-                              Name="LogGrid" 
-                              VerticalAlignment="Top" 
-                              Width="470">
-                        <DataGrid.Columns >
-                            <DataGridTextColumn Header="Date" Binding="{Binding Path=date}" Width="70" />
-                            <DataGridTextColumn Header="Distance" Binding="{Binding Path=distance}" Width="70" />
-                            <DataGridTextColumn Header="Total Time" Binding="{Binding Path=total_time}" Width="70" />
-                            <DataGridTextColumn Header="Rating" Binding="{Binding Path=rating}" Width="70" />
-                            <DataGridTextColumn Header="Report" Binding="{Binding Path=report}" Width="120" />
-                            <DataGridTextColumn Header="Name" Binding="{Binding Path=name}" Width="70" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    
                 </StackPanel>
 
             </Grid>

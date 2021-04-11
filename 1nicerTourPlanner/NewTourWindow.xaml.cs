@@ -24,6 +24,7 @@ namespace _1nicerTourPlanner
         {
             InitializeComponent();
             this.DataContext = new AddTourVM();
+
         }
     }
 }

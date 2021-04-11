@@ -2,6 +2,8 @@ using _1nicerTourPlanner.Models;
 using System;
 using System.Collections.Generic;
 using Npgsql;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace _1nicerTourPlanner.DataAccessLayer
 {
@@ -11,8 +13,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         NpgsqlConnection con;
         public DB()
         {
-
-            //get connection data e.g. from config file
+            //get connection string from json
             connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;";
             con = GetConnection(connectionString);
         }
@@ -24,7 +25,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         {
             List<TourLog> logList = new List<TourLog>();
             con.Open();
-            var query = "SELECT date, distance, tot_time, rating, name FROM public.\"Logs\" where tour_id = @tourID;";
+            var query = "SELECT date, distance, tot_time, rating, name, report FROM public.\"Logs\" where tour_id = @tourID;";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             cmd.Parameters.AddWithValue("tourID", tourID);
             cmd.Prepare();
@@ -37,7 +38,8 @@ namespace _1nicerTourPlanner.DataAccessLayer
                     Distance = reader.GetInt32(1),
                     TotalTime = reader.GetInt32(2),
                     Rating = reader.GetInt32(3),
-                    Name = reader.GetString(4)
+                    Name = reader.GetString(4),
+                    Report = reader.GetString(5)
                 });
             }
             con.Close();
@@ -56,10 +58,10 @@ namespace _1nicerTourPlanner.DataAccessLayer
             {
                 tourList.Add(new Tour(){Name = reader.GetString(0), 
                                         Description = reader.GetString(1), 
-                                        Distance = reader.GetInt32(2) });
+                                        Distance = reader.GetInt32(2), 
+                                        TourID = reader.GetInt32(3)});
             }
             con.Close();
-
             return tourList;  
         }
 

@@ -19,5 +19,10 @@ namespace _1nicerTourPlanner.DataAccessLayer
         {
             return dataAccess.GetTours();
         }
+        public List<TourLog> GetLogs(int tourID)
+        {
+            return dataAccess.GetLogs(tourID);
+        }
+        
     }
 }

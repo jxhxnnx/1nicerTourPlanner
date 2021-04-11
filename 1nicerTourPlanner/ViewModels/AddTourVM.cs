@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.ViewModels;
 
@@ -72,6 +73,7 @@ namespace _1nicerTourPlanner.ViewModels
             NewName = "Success";
             NewDescription = "";
             NewDistance = 0;
+            
         }
         private void Clear(object commandParameter)
         {

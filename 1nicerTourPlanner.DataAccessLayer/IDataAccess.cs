@@ -6,7 +6,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
 {
     interface IDataAccess
     {
-        public List<TourLog> GetLogs(int tourID);
         public List<Tour> GetTours();
+        public List<TourLog> GetLogs(int tourID);
     }
 }

@@ -15,18 +15,12 @@ namespace _1nicerTourPlanner.DataAccessLayer
             //get file path from config file
             filePath = "...";
         }
+
         public List<TourLog> GetLogs(int tourID)
         {
-            //get items from file system
-            return new List<TourLog>()
-            {
-                new TourLog(){Name = "Log1"},
-                new TourLog(){Name = "Log2"},
-                new TourLog(){Name = "Log3"},
-                new TourLog(){Name = "Log4"},
-                new TourLog(){Name = "Log5"}
-            };
+            throw new NotImplementedException();
         }
+
         public List<Tour> GetTours()
         {
             //get items from file system
