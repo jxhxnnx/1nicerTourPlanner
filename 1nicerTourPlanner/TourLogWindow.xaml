@@ -9,19 +9,18 @@
     <Grid>
         <DataGrid AutoGenerateColumns="False"
                               ItemsSource="{Binding Logs}"
-                              Margin="5,10,0,0"
-                              HorizontalAlignment="Left" 
+                              Margin="5,10,5,0"
+                              HorizontalAlignment="Center" 
                               Name="LogGrid" 
                               VerticalAlignment="Top" 
-                              Width="600">
+                              Width="590">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=name}" Width="70" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=date}" Width="70" />
-                <DataGridTextColumn Header="Distance" Binding="{Binding Path=distance}" Width="70" />
-                <DataGridTextColumn Header="Total Time" Binding="{Binding Path=total_time}" Width="70" />
-                <DataGridTextColumn Header="Rating" Binding="{Binding Path=rating}" Width="70" />
-                <DataGridTextColumn Header="Report" Binding="{Binding Path=report}" Width="250" />
-                
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="70" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="70" />
+                <DataGridTextColumn Header="Distance" Binding="{Binding Distance}" Width="70" />
+                <DataGridTextColumn Header="Total Time" Binding="{Binding TotalTime}" Width="70" />
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" Width="70" />
+                <DataGridTextColumn Header="Report" Binding="{Binding Report}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -6,11 +6,12 @@ namespace _1nicerTourPlanner.Test
 {
     public class DB_Test
     {
+        DB db = new DB();
         [Test]
         public void DBNotNull()
         {
-            DB db = new DB();
             Assert.IsNotNull(db);
         }
+
     }
 }

@@ -25,7 +25,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         {
             List<TourLog> logList = new List<TourLog>();
             con.Open();
-            var query = "SELECT date, distance, tot_time, rating, name, report FROM public.\"Logs\" where tour_id = @tourID;";
+            var query = "SELECT date, distance, tot_time, rating, name, report, tour_id FROM public.\"Logs\" where tour_id = @tourID;";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             cmd.Parameters.AddWithValue("tourID", tourID);
             cmd.Prepare();
@@ -39,7 +39,8 @@ namespace _1nicerTourPlanner.DataAccessLayer
                     TotalTime = reader.GetInt32(2),
                     Rating = reader.GetInt32(3),
                     Name = reader.GetString(4),
-                    Report = reader.GetString(5)
+                    Report = reader.GetString(5),
+                    TourID = reader.GetInt32(6)
                 });
             }
             con.Close();

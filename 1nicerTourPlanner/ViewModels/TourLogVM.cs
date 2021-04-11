@@ -7,16 +7,39 @@ using System.Runtime.CompilerServices;
 using System.Collections;
 using _1nicerTourPlanner.Models;
 using _1nicerTourPlanner.DataAccessLayer;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using _1nicerTourPlanner.ViewModels;
 
 namespace _1nicerTourPlanner.ViewModels
 {
-    class TourLogVM
+    class TourLogVM : ViewModelBase
     {
         private TourDAO tourDAO = new TourDAO();
-        public List<TourLog> Logs;
+        private ObservableCollection<TourLog> logs = new ObservableCollection<TourLog>();
+        public ObservableCollection<TourLog> Logs
+        {
+            get{
+                return logs;
+            }
+            set
+            {
+                logs = value;
+                RaisePropertyChangedEvent(nameof(Logs));
+            }
+        }
+        
+        public List<TourLog> ListLog;
         public TourLogVM()
         {
-           // Logs = tourDAO.GetLogs();
+            ListLog = tourDAO.GetLogs(1);
+            foreach (TourLog log in ListLog)
+            {
+                logs.Add(log);
+            }
+
         }
+
+
     }
 }

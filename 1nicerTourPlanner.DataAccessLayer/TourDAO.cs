@@ -12,7 +12,6 @@ namespace _1nicerTourPlanner.DataAccessLayer
         private IDataAccess dataAccess;
         public TourDAO()
         {
-            //check which datasource to use
             dataAccess = new DB();
         }
         public List<Tour> GetTours()

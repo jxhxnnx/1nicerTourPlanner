@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1nicerTourPlanner.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace _1nicerTourPlanner
         public TourLogWindow()
         {
             InitializeComponent();
+            this.DataContext = new TourLogVM();
         }
     }
 }
