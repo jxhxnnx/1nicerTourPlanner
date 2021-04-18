@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.DataAccessLayer;
@@ -30,7 +31,7 @@ namespace _1nicerTourPlanner.ViewModels
             }
             set
             {
-                if(currentTour != value)
+                if (currentTour != value)
                 {
                     currentTour = value;
                     RaisePropertyChangedEvent(nameof(CurrentTour));
@@ -42,7 +43,7 @@ namespace _1nicerTourPlanner.ViewModels
             get { return searchName; }
             set
             {
-                if(searchName != value)
+                if (searchName != value)
                 {
                     searchName = value;
                     RaisePropertyChangedEvent(nameof(SearchName));
@@ -109,8 +110,60 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void GetLogs(object commandParameter)
         {
-            TourLogWindow logWindow = new TourLogWindow();
-            logWindow.Show();
+            if (currentTour != null)
+            {
+                TourLogWindow logWindow = new TourLogWindow(CurrentTour);
+                logWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a tour!");
+            }
+        }
+
+        private ICommand modifyTourCommand;
+        public ICommand ModifyTourCommand => modifyTourCommand ??= new RelayCommand(ModifyTour);
+
+        private void ModifyTour(object commandParameter)
+        {
+            ModifyTourWindow modifyWindow = new ModifyTourWindow(CurrentTour);
+            modifyWindow.Show();
+        }
+
+        private ICommand copyTourCommand;
+        public ICommand CopyTourCommand => copyTourCommand ??= new RelayCommand(CopyTour);
+
+        private void CopyTour(object commandParameter)
+        {
+            if (currentTour != null)
+            {
+                db.CopyTour(currentTour);
+                Tours.Clear();
+                FillListBox();
+                MessageBox.Show("Success!");
+            }
+            else
+            {
+                MessageBox.Show("Please choose a tour!");
+            }
+
+        }
+
+        private ICommand newLogCommand;
+        public ICommand NewLogCommand => newLogCommand ??= new RelayCommand(NewLog);
+
+        private void NewLog(object commandParameter)
+        {
+            if (currentTour != null)
+            {
+                NewLogWindow newLogWindow = new NewLogWindow(CurrentTour);
+                newLogWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a tour!");
+            }
+
         }
     }
 }

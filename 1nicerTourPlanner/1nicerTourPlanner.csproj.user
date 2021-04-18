@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ModifyTourWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewLogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="NewTourWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,6 +22,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModifyTourWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewLogWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NewTourWindow.xaml">

@@ -28,18 +28,19 @@ namespace _1nicerTourPlanner.ViewModels
                 RaisePropertyChangedEvent(nameof(Logs));
             }
         }
-        
+
         public List<TourLog> ListLog;
-        public TourLogVM()
+        public TourLogVM(Tour tour)
         {
-            ListLog = tourDAO.GetLogs(1);
+            ListLog = tourDAO.GetLogs(tour.TourID);
             foreach (TourLog log in ListLog)
             {
                 logs.Add(log);
             }
-
         }
-
-
+        public TourLogVM()
+        {
+            //nur da, falls man eine Tour anklickt, die keine Logs hat
+        }
     }
 }

@@ -33,3 +33,7 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\TourLogWindow.g.cs
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\TourLogWindow.baml
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ModifyTourWindow.g.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ModifyTourWindow.baml
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewLogWindow.g.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewLogWindow.baml

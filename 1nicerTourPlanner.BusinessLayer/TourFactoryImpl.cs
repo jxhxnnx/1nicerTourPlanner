@@ -22,7 +22,7 @@ namespace _1nicerTourPlanner.BusinessLayer
             IEnumerable<Tour> tour = GetTours();
             if(caseSensitive)
             {
-                tour.Where(x => x.Name.Contains(tourName));
+               return tour.Where(x => x.Name.Contains(tourName));
             }
             return tour.Where(x => x.Name.ToLower().Contains(tourName.ToLower()));
         }

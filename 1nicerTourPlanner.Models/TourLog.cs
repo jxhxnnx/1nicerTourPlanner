@@ -11,5 +11,10 @@ namespace _1nicerTourPlanner.Models
         public int Rating { get; set; }
         public float TotalTime { get; set; }
         public int TourID { get; set; } 
+        public bool Alone { get; set; }
+        public string Vehicle { get; set; }
+        public string Weather { get; set; }
+        public string Traveller { get; set; }
+        public float Speed { get; set; }
     }
 }

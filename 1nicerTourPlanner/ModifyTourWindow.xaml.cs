@@ -17,19 +17,20 @@ using System.Windows.Shapes;
 namespace _1nicerTourPlanner
 {
     /// <summary>
-    /// Interaktionslogik für TourLogWindow.xaml
+    /// Interaktionslogik für ModifyTourWindow.xaml
     /// </summary>
-    public partial class TourLogWindow : Window
+    public partial class ModifyTourWindow : Window
     {
-        public TourLogWindow()
+        public ModifyTourWindow(Tour tour)
         {
             InitializeComponent();
-            this.DataContext = new TourLogVM();
+            this.DataContext = new ModifyTourVM(tour);
         }
-        public TourLogWindow(Tour tour)
+        /*public ModifyTourWindow()
         {
             InitializeComponent();
-            this.DataContext = new TourLogVM(tour);
-        }
+            this.DataContext = new ModifyTourVM();
+        }*/
+
     }
 }
