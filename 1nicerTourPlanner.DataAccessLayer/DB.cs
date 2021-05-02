@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Npgsql;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Configuration;
 
 namespace _1nicerTourPlanner.DataAccessLayer
 {
@@ -13,8 +14,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         NpgsqlConnection con;
         public DB()
         {
-            //get connection string from json
-            connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;";
+            connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
             con = GetConnection(connectionString);
         }
         private static NpgsqlConnection GetConnection(string connectionString)
@@ -70,7 +70,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         {
             List<Tour> tourList = new List<Tour>();
             con.Open();
-            var query = "SELECT name, description, distance, tour_id FROM public.\"Tours\";";
+            var query = "SELECT name, description, distance, tour_id, start, destination, imagepath FROM public.\"Tours\";";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             cmd.Prepare();
             using NpgsqlDataReader reader = cmd.ExecuteReader();
@@ -79,20 +79,26 @@ namespace _1nicerTourPlanner.DataAccessLayer
                 tourList.Add(new Tour(){Name = reader.GetString(0), 
                                         Description = reader.GetString(1), 
                                         Distance = reader.GetInt32(2), 
-                                        TourID = reader.GetInt32(3)});
+                                        TourID = reader.GetInt32(3),
+                                        Start = reader.GetString(4),
+                                        Destination = reader.GetString(5),
+                                        Imagepath = reader.GetString(6)});
             }
             con.Close();
             return tourList;  
         }
 
-        public void AddTour(string name, string description, float distance)
+        public void AddTour(string name, string description, float distance, string start, string destination, string imagepath)
         {
             con.Open();
-            var query = "INSERT INTO public.\"Tours\"(name, description, distance) VALUES(@name, @description, @distance); ";
+            var query = "INSERT INTO public.\"Tours\"(name, description, distance, start, destination, imagepath) VALUES(@name, @description, @distance, @start, @destination, @imagepath); ";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("description", description);
             cmd.Parameters.AddWithValue("distance", distance);
+            cmd.Parameters.AddWithValue("start", start);
+            cmd.Parameters.AddWithValue("destination", destination);
+            cmd.Parameters.AddWithValue("imagepath", imagepath);
             cmd.Prepare();
             cmd.ExecuteReader();
             con.Close();
@@ -124,11 +130,14 @@ namespace _1nicerTourPlanner.DataAccessLayer
         {
             string name = currentTour.Name + "-Copy";
             con.Open();
-            var query = "INSERT INTO public.\"Tours\"(name, description, distance) VALUES(@name, @description, @distance); ";
+            var query = "INSERT INTO public.\"Tours\"(name, description, distance, start, destination, imagepath) VALUES(@name, @description, @distance, @start, @destination, @imagepath); ";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("description", currentTour.Description);
             cmd.Parameters.AddWithValue("distance", currentTour.Distance);
+            cmd.Parameters.AddWithValue("start", currentTour.Start);
+            cmd.Parameters.AddWithValue("destination", currentTour.Destination);
+            cmd.Parameters.AddWithValue("imagepath", currentTour.Imagepath);
             cmd.Prepare();
             cmd.ExecuteReader();
             con.Close();

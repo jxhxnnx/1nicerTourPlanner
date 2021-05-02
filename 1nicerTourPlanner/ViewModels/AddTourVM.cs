@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.DataAccessLayer;
@@ -12,9 +13,25 @@ namespace _1nicerTourPlanner.ViewModels
 {
     class AddTourVM : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private string newName;
+        private string newStart;
+        private string newDestination;
         private string newDescription;
         private float newDistance;
+        public HTTPConnection httpCon;
+        public HTTPResponse httpResp;
+        public ImageHandler imageHandler;
+        DB db;
+        public AddTourVM()
+        {
+            db = new DB();
+            httpCon = new HTTPConnection();
+            httpResp = new HTTPResponse();
+            imageHandler = new ImageHandler();
+        }
+
 
         private ICommand addTourCommand;
         private ICommand clearCommand;
@@ -32,6 +49,36 @@ namespace _1nicerTourPlanner.ViewModels
                 {
                     newName = value;
                     RaisePropertyChangedEvent(nameof(NewName));
+                }
+            }
+        }
+        public string NewStart
+        {
+            get
+            {
+                return newStart;
+            }
+            set
+            {
+                if (newStart != value)
+                {
+                    newStart = value;
+                    RaisePropertyChangedEvent(nameof(NewStart));
+                }
+            }
+        }
+        public string NewDestination
+        {
+            get
+            {
+                return newDestination;
+            }
+            set
+            {
+                if (newDestination != value)
+                {
+                    newDestination = value;
+                    RaisePropertyChangedEvent(nameof(NewDestination));
                 }
             }
         }
@@ -68,11 +115,16 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void AddTour(object commandParameter)
         {
-            DB db = new DB();
-            db.AddTour(NewName, NewDescription, NewDistance);
-            NewName = "Success";
+            string response = httpCon.GetJsonResponse(NewStart, NewDestination);
+            httpResp.SetJObject(response);
+            string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), NewName);
+            NewDistance = float.Parse(httpResp.GetMapData().Distance);
+            db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
+            MessageBox.Show("Success!");
+            NewName = "";
             NewDescription = "";
-            NewDistance = 0;
+            NewStart = "";
+            NewDestination = "";
             
         }
         private void Clear(object commandParameter)
@@ -80,16 +132,8 @@ namespace _1nicerTourPlanner.ViewModels
             NewName = "";
             NewDescription = "";
             NewDistance = 0;
-
+            NewStart = "";
+            NewDestination = "";
         }
-
-        private ICommand closeWindowCommand;
-        public ICommand CloseWindowCommand => closeWindowCommand ??= new RelayCommand(CloseWindow);
-
-        private void CloseWindow(object commandParameter)
-        {
-            
-        }
-        
     }
 }

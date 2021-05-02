@@ -15,6 +15,8 @@ namespace _1nicerTourPlanner.ViewModels
 {
     class TourLogVM : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private TourDAO tourDAO = new TourDAO();
         private ObservableCollection<TourLog> logs = new ObservableCollection<TourLog>();
         public ObservableCollection<TourLog> Logs

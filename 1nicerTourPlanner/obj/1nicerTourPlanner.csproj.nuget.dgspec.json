@@ -46,6 +46,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -115,6 +121,10 @@
             "Npgsql": {
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
             }
           },
           "imports": [
@@ -174,6 +184,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -222,6 +238,9 @@
             "projectReferences": {
               "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.BusinessLayer\\1nicerTourPlanner.BusinessLayer.csproj": {
                 "projectPath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.BusinessLayer\\1nicerTourPlanner.BusinessLayer.csproj"
+              },
+              "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.Models\\1nicerTourPlanner.Models.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.Models\\1nicerTourPlanner.Models.csproj"
               }
             }
           }
@@ -235,6 +254,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

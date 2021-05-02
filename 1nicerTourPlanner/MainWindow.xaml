@@ -16,25 +16,25 @@
             <Button  Width="100" Margin="5,5,5,0" Command="{Binding NewTourCommand}">
                 Add Tour
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding DeleteTourCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding DeleteTourCommand}" IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Delete Tour
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding ModifyTourCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding ModifyTourCommand}" IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Modify Tour
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding CopyTourCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding CopyTourCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Copy Tour
             </Button>
             <Button  Width="100" Margin="5,5,5,0" Command="{Binding ImportTourCommand}">
                 Import Tour
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding ExportTourCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding ExportTourCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Export Tour
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding NewLogCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding NewLogCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Add Log
             </Button>
-            <Button  Width="100" Margin="5,5,5,0" Command="{Binding PrintTourCommand}">
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding PrintTourCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Print Tour
             </Button>
         </StackPanel>
@@ -86,32 +86,39 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                                <TextBlock Grid.Row="0" Text="Name:" Margin="5,0,5,0" 
+                                <TextBlock Grid.Row="0" Text="Start:" Margin="5,0,5,0" 
                                            HorizontalAlignment="Left" Width="70" />
                                 <TextBlock Grid.Row="0" Margin="80,0,0,0" Width="250" 
-                                           Text="{Binding CurrentTour.Name}"  />
-                                <TextBlock Grid.Row="1" Text="Description:" Margin="5,0,5,0" 
+                                           Text="{Binding CurrentTour.Start}"  />
+                                <TextBlock Grid.Row="1" Text="Destination:" Margin="5,0,5,0" 
                                            HorizontalAlignment="Left" Width="70" />
                                 <TextBlock Grid.Row="1" Margin="80,0,0,0" Width="250" 
-                                           Text="{Binding CurrentTour.Description}" />
+                                           Text="{Binding CurrentTour.Destination}" />
                                 <TextBlock Grid.Row="2" Text="Distance:" Margin="5,0,5,0" 
                                            HorizontalAlignment="Left" Width="70" />
                                 <TextBlock Grid.Row="2" Margin="80,0,0,0" Width="50" HorizontalAlignment="Left"
                                            Text="{Binding CurrentTour.Distance}" />
                                 <TextBlock Grid.Row="2" Text="km" Margin="150,0,5,0" 
                                            HorizontalAlignment="Left" Width="50" />
+                                <TextBlock Grid.Row="3" Text="Description:" Margin="5,0,5,0" 
+                                           HorizontalAlignment="Left" Width="70" />
+                            <TextBlock Grid.Row="3" Margin="80,0,0,0" Width="250" 
+                                           Text="{Binding CurrentTour.Description}"  />
                         </Grid>
                         
                         <TextBox Grid.Column="1" HorizontalAlignment="Right"/>
 
                     </Grid>
 
-                    <Button Width="70" Command="{Binding GetLogsCommand}" Margin="5,10,0,5">
+                    <Button Width="70" Command="{Binding GetLogsCommand}" Margin="5,10,0,5"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                         Get Logs
                     </Button>
-                    
+                    <Image Height="250" Margin="15"
+                           Source="{Binding CurrentTour.Imagepath}"  />
+
                 </StackPanel>
 
             </Grid>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using _1nicerTourPlanner.BusinessLayer;
@@ -12,6 +13,7 @@ namespace _1nicerTourPlanner.ViewModels
 {
     public class TourVM : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private ITourFactory tourFactory;
         private Tour currentTour;
         private string searchName;
@@ -100,9 +102,17 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void DeleteTour(object commandParameter)
         {
-            db.DeleteTour(currentTour);
-            Tours.Clear();
-            FillListBox();
+            if (currentTour != null)
+            {   
+                db.DeleteTour(currentTour);
+                Tours.Clear();
+                FillListBox();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a tour!");
+            }
+
         }
 
         private ICommand getLogsCommand;
@@ -126,8 +136,16 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ModifyTour(object commandParameter)
         {
-            ModifyTourWindow modifyWindow = new ModifyTourWindow(CurrentTour);
-            modifyWindow.Show();
+            if (currentTour != null)
+            {
+                ModifyTourWindow modifyWindow = new ModifyTourWindow(currentTour);
+                modifyWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose a tour!");
+            }
+
         }
 
         private ICommand copyTourCommand;
@@ -135,6 +153,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void CopyTour(object commandParameter)
         {
+            log.Error("Ich bin ein netter Test-String");
             if (currentTour != null)
             {
                 db.CopyTour(currentTour);

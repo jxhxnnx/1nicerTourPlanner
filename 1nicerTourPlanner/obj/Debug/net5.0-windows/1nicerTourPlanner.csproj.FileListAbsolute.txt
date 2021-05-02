@@ -37,3 +37,5 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ModifyTourWindow.baml
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewLogWindow.g.cs
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\NewLogWindow.baml
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\bin\Debug\net5.0-windows\1nicerTourPlanner.dll.config
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\bin\Debug\net5.0-windows\log4net.dll

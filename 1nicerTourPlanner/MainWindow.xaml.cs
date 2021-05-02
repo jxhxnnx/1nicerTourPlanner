@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace _1nicerTourPlanner
 {
     /// <summary>

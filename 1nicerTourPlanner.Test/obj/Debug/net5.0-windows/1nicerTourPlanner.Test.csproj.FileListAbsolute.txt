@@ -106,3 +106,4 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\obj\Debug\net5.0-windows\1nicerTourPlanner.Test.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.dll
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\1nicerTourPlanner.BusinessLayer.pdb
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\log4net.dll

@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Ik+XVW2MhaUfIOSLl0nJW/VfhiyY4VBPSDp4e9knmT2YY/6UEdHxP4jUoqzvM+RFNhL5nyUbmsqm9yMwZsD1aA==",
+  "dgSpecHash": "dLffIVo6hPXhwjll3fQKTEOcP+YXgbL6MIwrcsNwNGDIPnLXrikQYazLvMJ12Jo0MLgB/iE4QhLCI3tNiRmG+Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.Models\\1nicerTourPlanner.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\log4net\\2.0.12\\log4net.2.0.12.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
