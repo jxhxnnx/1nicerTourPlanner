@@ -23,7 +23,7 @@ namespace _1nicerTourPlanner.ViewModels
         public HTTPConnection httpCon;
         public HTTPResponse httpResp;
         public ImageHandler imageHandler;
-        DB db;
+        private DB db;
         public AddTourVM()
         {
             db = new DB();
@@ -115,23 +115,33 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void AddTour(object commandParameter)
         {
-            string response = httpCon.GetJsonResponse(NewStart, NewDestination);
-            httpResp.SetJObject(response);
-            string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), NewName);
-            NewDistance = float.Parse(httpResp.GetMapData().Distance);
-            try
+            if(NameExists(NewName))
             {
-                db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
-                MessageBox.Show("Success!");
-                NewName = "";
-                NewDescription = "";
-                NewStart = "";
-                NewDestination = "";
+                MessageBox.Show("Please choose another name! Name must be unique!");
+                log.Error("Adding Tour failed - name already exists");
             }
-            catch(Exception)
+            else
             {
-                log.Error("Adding Tour failed");
+                string response = httpCon.GetJsonResponse(NewStart, NewDestination);
+                httpResp.SetJObject(response);
+                string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), NewName);
+                NewDistance = float.Parse(httpResp.GetMapData().Distance);
+                try
+                {
+                    db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
+                    MessageBox.Show("Success!");
+                    NewName = "";
+                    NewDescription = "";
+                    NewStart = "";
+                    NewDestination = "";
+                    log.Info("Add tour");
+                }
+                catch (Exception)
+                {
+                    log.Error("Adding Tour failed");
+                }
             }
+            
         }
         private void Clear(object commandParameter)
         {
@@ -140,6 +150,15 @@ namespace _1nicerTourPlanner.ViewModels
             NewDistance = 0;
             NewStart = "";
             NewDestination = "";
+        }
+        
+        private bool NameExists(string name)
+        {
+            if (db.NameExists(name))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

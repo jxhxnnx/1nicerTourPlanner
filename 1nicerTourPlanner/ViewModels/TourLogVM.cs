@@ -42,7 +42,7 @@ namespace _1nicerTourPlanner.ViewModels
         }
         public TourLogVM()
         {
-            //nur da, falls man eine Tour anklickt, die keine Logs hat
+            //Eine Leiche aus vergangenen Zeiten
         }
     }
 }

@@ -101,6 +101,7 @@ namespace _1nicerTourPlanner.ViewModels
             {
                 db.ModifyTour(CurrentTour.TourID, CurrentTour.Name, CurrentTour.Description, CurrentTour.Distance);
                 MessageBox.Show("Success!");
+                log.Info("Modify tour");
             }
             catch(Exception)
             {

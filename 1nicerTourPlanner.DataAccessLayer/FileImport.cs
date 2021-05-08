@@ -11,15 +11,15 @@ namespace _1nicerTourPlanner.DataAccessLayer
         public string getFileName()
         {
             string filename = "";
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = "Tour";
-            dlg.DefaultExt = ".json"; // Default file extension
-            dlg.Filter = "Json files (.json)|*.json"; // Filter files by extension
-            Nullable<bool> result = dlg.ShowDialog();
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = "Tour";
+            dialog.DefaultExt = ".json"; 
+            dialog.Filter = "Json files (.json)|*.json"; 
+            Nullable<bool> result = dialog.ShowDialog();
             if (result == true)
             {
-                // Open document
-                filename = dlg.FileName;
+                
+                filename = dialog.FileName;
             }
             return filename;
         }

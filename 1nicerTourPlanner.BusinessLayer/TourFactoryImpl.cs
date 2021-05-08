@@ -8,8 +8,6 @@ namespace _1nicerTourPlanner.BusinessLayer
 {
     internal class TourFactoryImpl : ITourFactory
     {
-        private bool refresh_flag = false;
-        public bool Refresh_flag { get => refresh_flag; }
 
         private TourDAO tourDAO = new TourDAO();
         public IEnumerable<Tour> GetTours()
@@ -26,17 +24,5 @@ namespace _1nicerTourPlanner.BusinessLayer
             }
             return tour.Where(x => x.Name.ToLower().Contains(tourName.ToLower()));
         }
-        public void changeRefreshFlag()
-        {
-            if(refresh_flag == true)
-            {
-                refresh_flag = false;
-            }
-            else
-            {
-                refresh_flag = true;
-            }
-        }
-        
     }
 }

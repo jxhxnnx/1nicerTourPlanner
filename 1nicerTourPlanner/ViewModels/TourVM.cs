@@ -19,6 +19,7 @@ namespace _1nicerTourPlanner.ViewModels
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private ITourFactory tourFactory;
+        private TourDAO tourDAO = new TourDAO();
         private Tour currentTour;
         private string searchName;
         public DB db = new DB();
@@ -100,6 +101,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void NewTour(object commandParameter)
         {
+            log.Info("Open New Tour Window");
             NewTourWindow newWindow = new NewTourWindow();
             newWindow.Show();
         }
@@ -111,6 +113,7 @@ namespace _1nicerTourPlanner.ViewModels
         {
             try
             {
+                log.Info("Delete Tour");
                 db.DeleteTour(currentTour);
                 Tours.Clear();
                 FillListBox();
@@ -128,6 +131,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void GetLogs(object commandParameter)
         {
+            log.Info("Open Log window");
             TourLogWindow logWindow = new TourLogWindow(CurrentTour);
             logWindow.Show();
         }
@@ -137,6 +141,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ModifyTour(object commandParameter)
         {
+            log.Info("Open modify tour window");
             ModifyTourWindow modifyWindow = new ModifyTourWindow(currentTour);
             modifyWindow.Show();
         }
@@ -148,12 +153,13 @@ namespace _1nicerTourPlanner.ViewModels
         {
             try
             {
+                log.Info("Copy Tour");
                 db.CopyTour(currentTour);
                 Tours.Clear();
                 FillListBox();
                 MessageBox.Show("Success!");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 log.Error("Copy Tour failed");
             }
@@ -164,6 +170,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void NewLog(object commandParameter)
         {
+            log.Info("Open new log window");
             NewLogWindow newLogWindow = new NewLogWindow(CurrentTour);
             newLogWindow.Show();
         }
@@ -173,7 +180,6 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ExportTour(object commandParameter)
         {
-            TourDAO tourDAO = new TourDAO();
             CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
             string JSONresult = JsonConvert.SerializeObject(CurrentTour);
             string folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
@@ -198,12 +204,13 @@ namespace _1nicerTourPlanner.ViewModels
                     }
                 }
                 MessageBox.Show("Success");
+                log.Info("Export Tour");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 log.Error("Exporting Tour failed");
             }
-            
+
         }
 
         private ICommand importTourCommand;
@@ -233,8 +240,20 @@ namespace _1nicerTourPlanner.ViewModels
 
             try
             {
-                db.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
-                MessageBox.Show("Success!");
+                if (db.NameExists(importTour.Name))
+                {
+                    MessageBox.Show("Name already exists! Name must be unique");
+                    log.Error("Importing Tour failed - name already exists");
+                }
+                else
+                {
+                    db.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
+                    MessageBox.Show("Success!");
+                    Tours.Clear();
+                    FillListBox();
+                    log.Info("Import Tour");
+                }
+
             }
             catch (Exception)
             {

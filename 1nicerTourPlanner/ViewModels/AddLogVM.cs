@@ -250,6 +250,7 @@ namespace _1nicerTourPlanner.ViewModels
                 Weather = "";
                 Traveller = "";
                 Date = DateTime.Now;
+                log.Info("Adding Log");
             }
             catch(Exception)
             {

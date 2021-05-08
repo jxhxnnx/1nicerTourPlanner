@@ -165,5 +165,26 @@ namespace _1nicerTourPlanner.DataAccessLayer
             cmd.ExecuteReader();
             con.Close();
         }
+
+        public bool NameExists(string name)
+        {
+            int count = 0;
+            con.Open();
+            var query = "SELECT count(*) FROM public.\"Tours\" where name = @name;";
+            using NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("name", name);
+            cmd.Prepare();
+            using NpgsqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                count = reader.GetInt32(0);
+            }
+            con.Close();
+            if(count != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

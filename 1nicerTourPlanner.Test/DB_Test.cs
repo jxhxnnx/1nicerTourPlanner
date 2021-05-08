@@ -13,6 +13,11 @@ namespace _1nicerTourPlanner.Test
             Assert.IsNotNull(db);
         }
 
+        [Test]
+        public void NameExists()
+        {
+            Assert.IsTrue(db.NameExists("Filip"));
+        }
     }
 }
     

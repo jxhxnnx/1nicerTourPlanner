@@ -7,7 +7,6 @@ namespace _1nicerTourPlanner.BusinessLayer
     {
         IEnumerable<Tour> GetTours();
         IEnumerable<Tour> Search(string tourName, bool caseSensitive = false);
-        public void changeRefreshFlag();
-        public bool Refresh_flag { get; }
+
     }
 }
