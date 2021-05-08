@@ -14,6 +14,7 @@ namespace _1nicerTourPlanner.ViewModels
 {
     public class ModifyTourVM : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public DB db;
         private Tour currentTour;
         public Tour CurrentTour
@@ -96,8 +97,16 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ModifyTour(object commandParameter)
         {
-            db.ModifyTour(CurrentTour.TourID, CurrentTour.Name, CurrentTour.Description, CurrentTour.Distance);
-            MessageBox.Show("Success!");
+            try
+            {
+                db.ModifyTour(CurrentTour.TourID, CurrentTour.Name, CurrentTour.Description, CurrentTour.Distance);
+                MessageBox.Show("Success!");
+            }
+            catch(Exception)
+            {
+                log.Error("Modifying Tour failed");
+            }
+            
         }
     }
 }

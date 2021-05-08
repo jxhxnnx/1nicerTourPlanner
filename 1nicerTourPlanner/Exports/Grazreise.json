@@ -1,0 +1,10 @@
+{
+  "Logs": [],
+  "Name": "Grazreise",
+  "Start": "Wien",
+  "Destination": "Graz",
+  "Description": "langer Ausflug nach Greaz",
+  "Distance": 120.0,
+  "TourID": 43,
+  "Imagepath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\Images\\Grazreise.png"
+}

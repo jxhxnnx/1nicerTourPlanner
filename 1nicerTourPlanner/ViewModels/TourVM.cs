@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -8,6 +10,8 @@ using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.Models;
 using _1nicerTourPlanner.ViewModels;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -18,6 +22,9 @@ namespace _1nicerTourPlanner.ViewModels
         private Tour currentTour;
         private string searchName;
         public DB db = new DB();
+        public HTTPConnection httpCon;
+        public HTTPResponse httpResp;
+        public ImageHandler imageHandler;
 
         private ICommand searchCommand;
         private ICommand clearCommand;
@@ -102,16 +109,17 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void DeleteTour(object commandParameter)
         {
-            if (currentTour != null)
-            {   
+            try
+            {
                 db.DeleteTour(currentTour);
                 Tours.Clear();
                 FillListBox();
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Please choose a tour!");
+                log.Error("Deleting Tour failed");
             }
+
 
         }
 
@@ -120,15 +128,8 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void GetLogs(object commandParameter)
         {
-            if (currentTour != null)
-            {
-                TourLogWindow logWindow = new TourLogWindow(CurrentTour);
-                logWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please choose a tour!");
-            }
+            TourLogWindow logWindow = new TourLogWindow(CurrentTour);
+            logWindow.Show();
         }
 
         private ICommand modifyTourCommand;
@@ -136,16 +137,8 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ModifyTour(object commandParameter)
         {
-            if (currentTour != null)
-            {
-                ModifyTourWindow modifyWindow = new ModifyTourWindow(currentTour);
-                modifyWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please choose a tour!");
-            }
-
+            ModifyTourWindow modifyWindow = new ModifyTourWindow(currentTour);
+            modifyWindow.Show();
         }
 
         private ICommand copyTourCommand;
@@ -153,19 +146,17 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void CopyTour(object commandParameter)
         {
-            log.Error("Ich bin ein netter Test-String");
-            if (currentTour != null)
+            try
             {
                 db.CopyTour(currentTour);
                 Tours.Clear();
                 FillListBox();
                 MessageBox.Show("Success!");
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("Please choose a tour!");
+                log.Error("Copy Tour failed");
             }
-
         }
 
         private ICommand newLogCommand;
@@ -173,16 +164,82 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void NewLog(object commandParameter)
         {
-            if (currentTour != null)
-            {
-                NewLogWindow newLogWindow = new NewLogWindow(CurrentTour);
-                newLogWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please choose a tour!");
-            }
+            NewLogWindow newLogWindow = new NewLogWindow(CurrentTour);
+            newLogWindow.Show();
+        }
 
+        private ICommand exportTourCommand;
+        public ICommand ExportTourCommand => exportTourCommand ??= new RelayCommand(ExportTour);
+
+        private void ExportTour(object commandParameter)
+        {
+            TourDAO tourDAO = new TourDAO();
+            CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
+            string JSONresult = JsonConvert.SerializeObject(CurrentTour);
+            string folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
+            string exportPath = folderPath + "\\" + CurrentTour.Name + ".json";
+            try
+            {
+                if (File.Exists(exportPath))
+                {
+                    File.Delete(exportPath);
+                    using (var tw = new StreamWriter(exportPath, true))
+                    {
+                        tw.WriteLine(JSONresult.ToString());
+                        tw.Close();
+                    }
+                }
+                else if (!File.Exists(exportPath))
+                {
+                    using (var tw = new StreamWriter(exportPath, true))
+                    {
+                        tw.WriteLine(JSONresult.ToString());
+                        tw.Close();
+                    }
+                }
+                MessageBox.Show("Success");
+            }
+            catch(Exception)
+            {
+                log.Error("Exporting Tour failed");
+            }
+            
+        }
+
+        private ICommand importTourCommand;
+        public ICommand ImportTourCommand => importTourCommand ??= new RelayCommand(ImportTour);
+
+        private void ImportTour(object commandParameter)
+        {
+            httpCon = new HTTPConnection();
+            httpResp = new HTTPResponse();
+            imageHandler = new ImageHandler();
+
+            FileImport fileImport = new FileImport();
+            string fileName = fileImport.getFileName();
+            string jsonstring = File.ReadAllText(fileName).ToString();
+            JObject jsondata = JObject.Parse(jsonstring);
+
+            Tour importTour = new Tour();
+            importTour.Name = jsondata["Name"].ToString();
+            importTour.Start = jsondata["Start"].ToString();
+            importTour.Destination = jsondata["Destination"].ToString();
+            importTour.Description = jsondata["Description"].ToString();
+
+            string response = httpCon.GetJsonResponse(importTour.Start, importTour.Destination);
+            httpResp.SetJObject(response);
+            string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), importTour.Name);
+            importTour.Distance = float.Parse(httpResp.GetMapData().Distance);
+
+            try
+            {
+                db.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
+                MessageBox.Show("Success!");
+            }
+            catch (Exception)
+            {
+                log.Error("Importing Tour failed");
+            }
         }
     }
 }

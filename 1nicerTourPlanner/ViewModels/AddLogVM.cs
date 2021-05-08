@@ -236,18 +236,26 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void AddLog(object commandParameter)
         {
-            db.AddLog(Date, Distance, TotTime, TourID, Name, Report, Rating, Alone, Vehicle, Weather, Traveller, Speed);
-            MessageBox.Show("Success!");
-            Distance = 0;
-            TotTime = 0;
-            Name = "";
-            Report = "";
-            Rating = 0;
-            Alone = false;
-            Vehicle = "";
-            Weather = "";
-            Traveller = "";
-            Date = DateTime.Now;
+            try
+            {
+                db.AddLog(Date, Distance, TotTime, TourID, Name, Report, Rating, Alone, Vehicle, Weather, Traveller, Speed);
+                MessageBox.Show("Success!");
+                Distance = 0;
+                TotTime = 0;
+                Name = "";
+                Report = "";
+                Rating = 0;
+                Alone = false;
+                Vehicle = "";
+                Weather = "";
+                Traveller = "";
+                Date = DateTime.Now;
+            }
+            catch(Exception)
+            {
+                log.Error("Adding Log failed");
+            }
+            
         }
     }
 }

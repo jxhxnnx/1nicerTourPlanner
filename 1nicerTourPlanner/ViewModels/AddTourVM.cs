@@ -119,13 +119,19 @@ namespace _1nicerTourPlanner.ViewModels
             httpResp.SetJObject(response);
             string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), NewName);
             NewDistance = float.Parse(httpResp.GetMapData().Distance);
-            db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
-            MessageBox.Show("Success!");
-            NewName = "";
-            NewDescription = "";
-            NewStart = "";
-            NewDestination = "";
-            
+            try
+            {
+                db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
+                MessageBox.Show("Success!");
+                NewName = "";
+                NewDescription = "";
+                NewStart = "";
+                NewDestination = "";
+            }
+            catch(Exception)
+            {
+                log.Error("Adding Tour failed");
+            }
         }
         private void Clear(object commandParameter)
         {

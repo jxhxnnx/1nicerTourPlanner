@@ -1,0 +1,67 @@
+{
+  "Logs": [
+    {
+      "Name": "erster Log",
+      "Distance": 110.0,
+      "Date": "2021-05-02T00:00:00",
+      "Report": "Wir sind eher gemütlich gefahren",
+      "Rating": 6,
+      "TotalTime": 80.0,
+      "TourID": 42,
+      "Alone": false,
+      "Vehicle": "Car",
+      "Weather": "Sunny",
+      "Traveller": "Johanna",
+      "Speed": 82.5
+    },
+    {
+      "Name": "zweiter Log",
+      "Distance": 116.0,
+      "Date": "2021-05-02T00:00:00",
+      "Report": "Wir waren flott unterwegs",
+      "Rating": 7,
+      "TotalTime": 60.0,
+      "TourID": 42,
+      "Alone": false,
+      "Vehicle": "Car",
+      "Weather": "Stormy",
+      "Traveller": "Thomas",
+      "Speed": 116.0
+    },
+    {
+      "Name": "dritter Log",
+      "Distance": 110.0,
+      "Date": "2021-05-02T00:00:00",
+      "Report": "War eine ordentliche Radtour, hat Spaß gemacht",
+      "Rating": 9,
+      "TotalTime": 200.0,
+      "TourID": 42,
+      "Alone": true,
+      "Vehicle": "Bike",
+      "Weather": "Sunny",
+      "Traveller": "Gigi",
+      "Speed": 33.0
+    },
+    {
+      "Name": "vierter Log",
+      "Distance": 110.0,
+      "Date": "2021-05-02T00:00:00",
+      "Report": "laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanger Report",
+      "Rating": 3,
+      "TotalTime": 80.0,
+      "TourID": 42,
+      "Alone": true,
+      "Vehicle": "car",
+      "Weather": "sunny",
+      "Traveller": "me",
+      "Speed": 82.5
+    }
+  ],
+  "Name": "Artouro",
+  "Start": "Wien",
+  "Destination": "Linz",
+  "Description": "ein Trip in die Hauptstadt Oberösterreichs",
+  "Distance": 113.0,
+  "TourID": 42,
+  "Imagepath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\Images\\Artouro.png"
+}

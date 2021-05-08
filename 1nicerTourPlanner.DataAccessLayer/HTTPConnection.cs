@@ -41,7 +41,6 @@ namespace _1nicerTourPlanner.DataAccessLayer
                 serverResponse = reader.ReadToEnd();
             }
             response.Close();
-        }
-        
+        } 
     }
 }

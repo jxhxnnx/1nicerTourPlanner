@@ -14,4 +14,5 @@ namespace _1nicerTourPlanner.Models
         public List<TourLog> Logs;
         public string Imagepath { get; set; }
     }
+
 }
