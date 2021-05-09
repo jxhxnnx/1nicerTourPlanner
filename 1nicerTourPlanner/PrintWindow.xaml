@@ -1,0 +1,32 @@
+﻿<Window x:Class="_1nicerTourPlanner.PrintWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:_1nicerTourPlanner.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PrintTourVM}"
+        mc:Ignorable="d"
+        Title="PrintWindow" Height="200" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="0" Margin="10,10,10,10">
+            Print a detailed Tour Report
+        </Label>
+        <Label Grid.Row="1" Grid.Column="1" Margin="10,10,10,10">
+            Print a summarized Tour Report
+        </Label>
+        <Button Grid.Row="0" Grid.Column="0" Height="20" Width="100" Command="{Binding PrintDetailsCommand}">
+             Print Details
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1" Height="20" Width="100" Command="{Binding PrintSummaryCommand}">
+            Print Summary
+        </Button>
+    </Grid>
+</Window>

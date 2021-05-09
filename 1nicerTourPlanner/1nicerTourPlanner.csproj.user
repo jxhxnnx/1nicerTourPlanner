@@ -16,6 +16,9 @@
     <Compile Update="NewTourWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PrintWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TourLogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NewTourWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PrintWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TourLogWindow.xaml">

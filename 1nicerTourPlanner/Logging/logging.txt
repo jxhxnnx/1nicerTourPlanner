@@ -6,3 +6,49 @@
 19:38:11,916 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Copy Tour
 19:38:20,565 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Export Tour
 19:41:33,554 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Copy Tour
+20:15:00,062 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+20:15:55,741 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+20:16:18,542 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:06:09,549 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:08:22,023 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:23:28,199 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+17:23:32,699 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:33:35,396 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+17:33:39,388 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:49:35,916 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:53:08,946 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+17:58:11,708 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:02:39,925 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:03:27,765 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:04:56,424 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:09:58,570 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:10:46,097 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:11:34,459 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:13:09,312 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:14:43,436 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:18:15,866 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:20:56,723 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:21:31,789 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+18:21:38,614 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open new log window
+18:22:16,115 [_1nicerTourPlanner.ViewModels.AddLogVM] INFO -Adding Log
+18:23:46,336 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:25:42,171 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:29:20,147 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:31:00,056 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:32:50,844 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:36:44,456 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:39:41,169 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:44:49,937 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:48:01,475 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:49:23,114 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:52:08,113 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:52:40,186 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:56:57,779 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+18:57:21,723 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:02:27,987 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:05:21,796 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:10:53,576 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:28:59,485 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:29:18,486 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:30:27,132 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+19:31:58,979 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window

@@ -53,7 +53,7 @@ namespace _1nicerTourPlanner {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/1nicerTourPlanner;V1.0.0.0;component/newlogwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/1nicerTourPlanner;component/newlogwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\NewLogWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

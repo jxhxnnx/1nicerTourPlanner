@@ -260,5 +260,16 @@ namespace _1nicerTourPlanner.ViewModels
                 log.Error("Importing Tour failed");
             }
         }
+
+        private ICommand printTourCommand;
+        public ICommand PrintTourCommand => printTourCommand ??= new RelayCommand(PrintTour);
+
+        private void PrintTour(object commandParameter)
+        {
+            log.Info("Open print window");
+            CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
+            PrintWindow printWindow = new PrintWindow(CurrentTour);
+            printWindow.Show();
+        }
     }
 }
