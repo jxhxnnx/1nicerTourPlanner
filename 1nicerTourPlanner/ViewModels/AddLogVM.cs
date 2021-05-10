@@ -16,6 +16,11 @@ namespace _1nicerTourPlanner.ViewModels
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public DB db;
+        private ICommand clearCommand;
+        private ICommand addLogCommand;
+        public ICommand ClearCommand => clearCommand ??= new RelayCommand(Clear);
+        public ICommand AddLogCommand => addLogCommand ??= new RelayCommand(AddLog);
+
         private Tour currentTour;
         public Tour CurrentTour
         {
@@ -214,8 +219,6 @@ namespace _1nicerTourPlanner.ViewModels
             CurrentTour = tour;
         }
 
-        private ICommand clearCommand;
-        public ICommand ClearCommand => clearCommand ??= new RelayCommand(Clear);
 
         private void Clear(object commandParameter)
         {
@@ -231,8 +234,7 @@ namespace _1nicerTourPlanner.ViewModels
             Date = DateTime.Now;
         }
 
-        private ICommand addLogCommand;
-        public ICommand AddLogCommand => addLogCommand ??= new RelayCommand(AddLog);
+
 
         private void AddLog(object commandParameter)
         {

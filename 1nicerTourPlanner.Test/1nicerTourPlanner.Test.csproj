@@ -7,15 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extras.Moq" Version="6.0.0" />
     <PackageReference Include="log4net" Version="2.0.12" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\1nicerTourPlanner.BusinessLayer\1nicerTourPlanner.BusinessLayer.csproj" />
     <ProjectReference Include="..\1nicerTourPlanner.DataAccessLayer\1nicerTourPlanner.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\1nicerTourPlanner\1nicerTourPlanner.csproj" />
   </ItemGroup>
 
 </Project>

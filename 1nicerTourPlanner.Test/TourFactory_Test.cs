@@ -5,10 +5,6 @@ namespace _1nicerTourPlanner.Test
 {
     class TourFactory_Test
     {
-        [Test]
-        public void RefreshFlagChange()
-        {
-            
-        }
+        
     }
 }

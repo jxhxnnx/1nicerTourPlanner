@@ -23,14 +23,32 @@ namespace _1nicerTourPlanner.ViewModels
         private Tour currentTour;
         private string searchName;
         public DB db = new DB();
-        public HTTPConnection httpCon;
-        public HTTPResponse httpResp;
-        public ImageHandler imageHandler;
+        
 
         private ICommand searchCommand;
         private ICommand clearCommand;
+        private ICommand newTourCommand;
+        private ICommand deleteTourCommand;
+        private ICommand modifyTourCommand;
+        private ICommand copyTourCommand;
+        private ICommand newLogCommand;
+        private ICommand getLogsCommand;
+        private ICommand exportTourCommand;
+        private ICommand importTourCommand;
+        private ICommand printTourCommand;
         public ICommand SearchCommand => searchCommand ??= new RelayCommand(Search);
         public ICommand ClearCommand => clearCommand ??= new RelayCommand(Clear);
+        public ICommand NewTourCommand => newTourCommand ??= new RelayCommand(NewTour);
+        public ICommand DeleteTourCommand => deleteTourCommand ??= new RelayCommand(DeleteTour);
+        public ICommand GetLogsCommand => getLogsCommand ??= new RelayCommand(GetLogs);
+        public ICommand ModifyTourCommand => modifyTourCommand ??= new RelayCommand(ModifyTour);
+        public ICommand CopyTourCommand => copyTourCommand ??= new RelayCommand(CopyTour);
+        public ICommand NewLogCommand => newLogCommand ??= new RelayCommand(NewLog);
+        public ICommand ExportTourCommand => exportTourCommand ??= new RelayCommand(ExportTour);
+        public ICommand ImportTourCommand => importTourCommand ??= new RelayCommand(ImportTour);
+        public ICommand PrintTourCommand => printTourCommand ??= new RelayCommand(PrintTour);
+
+
         public ObservableCollection<Tour> Tours { get; set; }
         public ObservableCollection<TourLog> Logs { get; set; }
         public Tour CurrentTour
@@ -96,18 +114,12 @@ namespace _1nicerTourPlanner.ViewModels
             FillListBox();
         }
 
-        private ICommand newTourCommand;
-        public ICommand NewTourCommand => newTourCommand ??= new RelayCommand(NewTour);
-
         private void NewTour(object commandParameter)
         {
             log.Info("Open New Tour Window");
             NewTourWindow newWindow = new NewTourWindow();
             newWindow.Show();
         }
-
-        private ICommand deleteTourCommand;
-        public ICommand DeleteTourCommand => deleteTourCommand ??= new RelayCommand(DeleteTour);
 
         private void DeleteTour(object commandParameter)
         {
@@ -122,12 +134,8 @@ namespace _1nicerTourPlanner.ViewModels
             {
                 log.Error("Deleting Tour failed");
             }
-
-
         }
 
-        private ICommand getLogsCommand;
-        public ICommand GetLogsCommand => getLogsCommand ??= new RelayCommand(GetLogs);
 
         private void GetLogs(object commandParameter)
         {
@@ -136,8 +144,7 @@ namespace _1nicerTourPlanner.ViewModels
             logWindow.Show();
         }
 
-        private ICommand modifyTourCommand;
-        public ICommand ModifyTourCommand => modifyTourCommand ??= new RelayCommand(ModifyTour);
+        
 
         private void ModifyTour(object commandParameter)
         {
@@ -146,8 +153,7 @@ namespace _1nicerTourPlanner.ViewModels
             modifyWindow.Show();
         }
 
-        private ICommand copyTourCommand;
-        public ICommand CopyTourCommand => copyTourCommand ??= new RelayCommand(CopyTour);
+
 
         private void CopyTour(object commandParameter)
         {
@@ -165,8 +171,6 @@ namespace _1nicerTourPlanner.ViewModels
             }
         }
 
-        private ICommand newLogCommand;
-        public ICommand NewLogCommand => newLogCommand ??= new RelayCommand(NewLog);
 
         private void NewLog(object commandParameter)
         {
@@ -175,94 +179,26 @@ namespace _1nicerTourPlanner.ViewModels
             newLogWindow.Show();
         }
 
-        private ICommand exportTourCommand;
-        public ICommand ExportTourCommand => exportTourCommand ??= new RelayCommand(ExportTour);
+ 
 
         private void ExportTour(object commandParameter)
         {
             CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
-            string JSONresult = JsonConvert.SerializeObject(CurrentTour);
-            string folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
-            string exportPath = folderPath + "\\" + CurrentTour.Name + ".json";
-            try
-            {
-                if (File.Exists(exportPath))
-                {
-                    File.Delete(exportPath);
-                    using (var tw = new StreamWriter(exportPath, true))
-                    {
-                        tw.WriteLine(JSONresult.ToString());
-                        tw.Close();
-                    }
-                }
-                else if (!File.Exists(exportPath))
-                {
-                    using (var tw = new StreamWriter(exportPath, true))
-                    {
-                        tw.WriteLine(JSONresult.ToString());
-                        tw.Close();
-                    }
-                }
-                MessageBox.Show("Success");
-                log.Info("Export Tour");
-            }
-            catch (Exception)
-            {
-                log.Error("Exporting Tour failed");
-            }
-
+            ExportHandler exportHandler = new ExportHandler();
+            exportHandler.ExportTour(CurrentTour);
         }
 
-        private ICommand importTourCommand;
-        public ICommand ImportTourCommand => importTourCommand ??= new RelayCommand(ImportTour);
+       
 
         private void ImportTour(object commandParameter)
         {
-            httpCon = new HTTPConnection();
-            httpResp = new HTTPResponse();
-            imageHandler = new ImageHandler();
-
-            FileImport fileImport = new FileImport();
-            string fileName = fileImport.getFileName();
-            string jsonstring = File.ReadAllText(fileName).ToString();
-            JObject jsondata = JObject.Parse(jsonstring);
-
-            Tour importTour = new Tour();
-            importTour.Name = jsondata["Name"].ToString();
-            importTour.Start = jsondata["Start"].ToString();
-            importTour.Destination = jsondata["Destination"].ToString();
-            importTour.Description = jsondata["Description"].ToString();
-
-            string response = httpCon.GetJsonResponse(importTour.Start, importTour.Destination);
-            httpResp.SetJObject(response);
-            string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), importTour.Name);
-            importTour.Distance = float.Parse(httpResp.GetMapData().Distance);
-
-            try
-            {
-                if (db.NameExists(importTour.Name))
-                {
-                    MessageBox.Show("Name already exists! Name must be unique");
-                    log.Error("Importing Tour failed - name already exists");
-                }
-                else
-                {
-                    db.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
-                    MessageBox.Show("Success!");
-                    Tours.Clear();
-                    FillListBox();
-                    log.Info("Import Tour");
-                }
-
-            }
-            catch (Exception)
-            {
-                log.Error("Importing Tour failed");
-            }
+            ImportHandler importHandler = new ImportHandler();
+            importHandler.ImportTour();
+            Tours.Clear();
+            FillListBox();
         }
 
-        private ICommand printTourCommand;
-        public ICommand PrintTourCommand => printTourCommand ??= new RelayCommand(PrintTour);
+
 
         private void PrintTour(object commandParameter)
         {

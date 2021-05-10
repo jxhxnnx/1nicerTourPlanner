@@ -13,11 +13,11 @@ using _1nicerTourPlanner.ViewModels;
 
 namespace _1nicerTourPlanner.ViewModels
 {
-    class TourLogVM : ViewModelBase
+    public class TourLogVM : ViewModelBase
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private TourDAO tourDAO = new TourDAO();
+        private TourDAO tourDAO;
         private ObservableCollection<TourLog> logs = new ObservableCollection<TourLog>();
         public ObservableCollection<TourLog> Logs
         {
@@ -34,6 +34,7 @@ namespace _1nicerTourPlanner.ViewModels
         public List<TourLog> ListLog;
         public TourLogVM(Tour tour)
         {
+            tourDAO = new TourDAO();
             ListLog = tourDAO.GetLogs(tour.TourID);
             foreach (TourLog log in ListLog)
             {
