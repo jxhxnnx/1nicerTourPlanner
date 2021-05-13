@@ -1228,6 +1228,7 @@
         "dependencies": {
           "1nicerTourPlanner.DataAccessLayer": "1.0.0",
           "1nicerTourPlanner.Models": "1.0.0",
+          "itext7": "7.1.15",
           "log4net": "2.0.12"
         },
         "runtime": {

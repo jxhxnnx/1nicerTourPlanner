@@ -132,3 +132,4 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\Moq.dll
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\Autofac.dll
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\Autofac.Extras.Moq.dll
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner.Test\bin\Debug\net5.0-windows\1nicerTourPlanner.Test.dll.config

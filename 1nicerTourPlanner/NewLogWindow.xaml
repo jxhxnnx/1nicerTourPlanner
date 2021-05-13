@@ -37,7 +37,7 @@
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Total Time (min):" Margin="5,5,5,5"/>
         <TextBox Grid.Row="4" Grid.Column="1" Margin="5,5,5,5" Text="{Binding Path=TotTime}"/>
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Report:" Margin="5,5,5,5" Height="50"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="5,5,5,5" Text="{Binding Path=Report}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="5,5,5,5" Text="{Binding Path=Report}" TextWrapping="Wrap"/>
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Rating (10 is best):" Margin="5,5,5,5"/>
         <ComboBox Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Width="50" HorizontalAlignment="Left" Text="{Binding Path=Rating}">
             <ComboBoxItem IsSelected="True">1</ComboBoxItem>

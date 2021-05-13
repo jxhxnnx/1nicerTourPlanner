@@ -1,19 +1,15 @@
 ﻿using _1nicerTourPlanner.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using iText.IO.Image;
 using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Draw;
 using iText.Layout;
 using iText.Layout.Element;
-using TextAlignment = iText.Layout.Properties.TextAlignment;
-using Paragraph = iText.Layout.Element.Paragraph;
-using iText.IO.Image;
-using iText.Kernel.Pdf.Canvas.Draw;
+using System;
+using System.Configuration;
+using System.IO;
 using System.Windows;
+using Paragraph = iText.Layout.Element.Paragraph;
+using TextAlignment = iText.Layout.Properties.TextAlignment;
 
 namespace _1nicerTourPlanner.BusinessLayer
 {
@@ -59,6 +55,7 @@ namespace _1nicerTourPlanner.BusinessLayer
 
                 foreach (var item in printTour.Logs)
                 {
+                    document.Add(ls);
                     document.Add(new Paragraph($"Name:\t{ item.Name }"));
                     document.Add(new Paragraph($"Distance:\t{item.Distance} km"));
                     document.Add(new Paragraph($"Date:\t{item.Date}"));
@@ -70,16 +67,16 @@ namespace _1nicerTourPlanner.BusinessLayer
                     document.Add(new Paragraph($"Weather:\t{item.Weather}"));
                     document.Add(new Paragraph($"Traveller:\t{item.Traveller}"));
                     document.Add(new Paragraph($"Average Speed:\t{item.Speed} km/h"));
-                    document.Add(ls);
+
                 }
 
 
                 document.Close();
                 MessageBox.Show("Success!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                log.Error("Generating detailed Tour-Report failed");
+                log.Error(ex.Message);
             }
         }
 
@@ -133,9 +130,9 @@ namespace _1nicerTourPlanner.BusinessLayer
                 document.Close();
                 MessageBox.Show("Success!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                log.Error("Generating detailed Tour-Report failed");
+                log.Error(ex.Message);
             }
         }
     }

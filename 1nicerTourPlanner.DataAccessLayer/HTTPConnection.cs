@@ -1,16 +1,11 @@
-﻿using _1nicerTourPlanner.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1nicerTourPlanner.DataAccessLayer
 {
-    public class HTTPConnection
+    public class HTTPConnection : IHTTPConnection
     {
         private string urlData;
         private string serverResponse;
@@ -25,22 +20,22 @@ namespace _1nicerTourPlanner.DataAccessLayer
             HandleRequest(requesturi);
             return serverResponse;
         }
-        private Uri RequestBuilder(string Start, string Destination)
+        public Uri RequestBuilder(string Start, string Destination)
         {
             string requesturi = urlData + "&from=" + Start + "&to=" + Destination;
 
             return new Uri(requesturi);
         }
-        private void HandleRequest(Uri completeRequest)
+        public void HandleRequest(Uri completeRequest)
         {
             WebRequest request = WebRequest.Create(completeRequest);
             WebResponse response = request.GetResponse();
-            using(Stream stream = response.GetResponseStream())
+            using (Stream stream = response.GetResponseStream())
             {
                 StreamReader reader = new StreamReader(stream);
                 serverResponse = reader.ReadToEnd();
             }
             response.Close();
-        } 
+        }
     }
 }

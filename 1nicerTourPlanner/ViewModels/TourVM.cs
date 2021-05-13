@@ -1,29 +1,21 @@
-﻿using System;
+﻿using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.Models;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Configuration;
-using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.DataAccessLayer;
-using _1nicerTourPlanner.Models;
-using _1nicerTourPlanner.ViewModels;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace _1nicerTourPlanner.ViewModels
 {
     public class TourVM : ViewModelBase
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        private ITourFactory tourFactory;
-        private TourDAO tourDAO = new TourDAO();
+
         private Tour currentTour;
         private string searchName;
-        public DB db = new DB();
-        
+        private TourHandler handler = new TourHandler();
+
 
         private ICommand searchCommand;
         private ICommand clearCommand;
@@ -66,6 +58,7 @@ namespace _1nicerTourPlanner.ViewModels
                 }
             }
         }
+
         public string SearchName
         {
             get { return searchName; }
@@ -78,9 +71,9 @@ namespace _1nicerTourPlanner.ViewModels
                 }
             }
         }
+
         public TourVM()
         {
-            tourFactory = TourFactory.GetInstance();
             InitListBox();
         }
 
@@ -92,7 +85,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void FillListBox()
         {
-            foreach (Tour item in this.tourFactory.GetTours())
+            foreach (Tour item in handler.GetTours())
             {
                 Tours.Add(item);
             }
@@ -100,7 +93,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void Search(object commandParameter)
         {
-            IEnumerable foundTours = this.tourFactory.Search(SearchName);
+            IEnumerable foundTours = handler.Search(SearchName);
             Tours.Clear();
             foreach (Tour item in foundTours)
             {
@@ -116,9 +109,9 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void NewTour(object commandParameter)
         {
-            log.Info("Open New Tour Window");
             NewTourWindow newWindow = new NewTourWindow();
             newWindow.Show();
+            log.Info("Open New Tour Window");
         }
 
         private void DeleteTour(object commandParameter)
@@ -126,16 +119,15 @@ namespace _1nicerTourPlanner.ViewModels
             try
             {
                 log.Info("Delete Tour");
-                db.DeleteTour(currentTour);
+                handler.DeleteTour(currentTour);
                 Tours.Clear();
                 FillListBox();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                log.Error("Deleting Tour failed");
+                log.Error(ex.Message);
             }
         }
-
 
         private void GetLogs(object commandParameter)
         {
@@ -144,8 +136,6 @@ namespace _1nicerTourPlanner.ViewModels
             logWindow.Show();
         }
 
-        
-
         private void ModifyTour(object commandParameter)
         {
             log.Info("Open modify tour window");
@@ -153,24 +143,21 @@ namespace _1nicerTourPlanner.ViewModels
             modifyWindow.Show();
         }
 
-
-
         private void CopyTour(object commandParameter)
         {
             try
             {
                 log.Info("Copy Tour");
-                db.CopyTour(currentTour);
+                handler.CopyTour(currentTour);
                 Tours.Clear();
                 FillListBox();
                 MessageBox.Show("Success!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                log.Error("Copy Tour failed");
+                log.Error(ex.Message);
             }
         }
-
 
         private void NewLog(object commandParameter)
         {
@@ -179,16 +166,12 @@ namespace _1nicerTourPlanner.ViewModels
             newLogWindow.Show();
         }
 
- 
-
         private void ExportTour(object commandParameter)
         {
-            CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
+            CurrentTour.Logs = handler.GetLogs(CurrentTour.TourID);
             ExportHandler exportHandler = new ExportHandler();
             exportHandler.ExportTour(CurrentTour);
         }
-
-       
 
         private void ImportTour(object commandParameter)
         {
@@ -198,12 +181,10 @@ namespace _1nicerTourPlanner.ViewModels
             FillListBox();
         }
 
-
-
         private void PrintTour(object commandParameter)
         {
             log.Info("Open print window");
-            CurrentTour.Logs = tourDAO.GetLogs(CurrentTour.TourID);
+            CurrentTour.Logs = handler.GetLogs(CurrentTour.TourID);
             PrintWindow printWindow = new PrintWindow(CurrentTour);
             printWindow.Show();
         }

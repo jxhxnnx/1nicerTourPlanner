@@ -1,22 +1,17 @@
-﻿using _1nicerTourPlanner.DataAccessLayer;
+﻿using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using _1nicerTourPlanner.BusinessLayer;
 using System.Windows;
+using System.Windows.Input;
 
 namespace _1nicerTourPlanner.ViewModels
 {
     public class ModifyTourVM : ViewModelBase
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public DB db;
+        private ModifyTourHandler handler;
         private Tour currentTour;
+        private Validator validator;
         public Tour CurrentTour
         {
             get
@@ -81,11 +76,12 @@ namespace _1nicerTourPlanner.ViewModels
                 }
             }
         }
-        
+
         public ModifyTourVM(Tour tour)
         {
-            db = new DB();
+            handler = new ModifyTourHandler();
             CurrentTour = tour;
+            validator = new Validator();
         }
         /*public ModifyTourVM()
         {
@@ -99,15 +95,19 @@ namespace _1nicerTourPlanner.ViewModels
         {
             try
             {
-                db.ModifyTour(CurrentTour.TourID, CurrentTour.Name, CurrentTour.Description, CurrentTour.Distance);
+                /*if (!validator.IsAllowedInputExtended(CurrentTour.Description))
+                {
+                    MessageBox.Show("Please only use:\na-z A-Z Ää Öö Üü 0-9 -_.:,!?=");
+                    log.Error("Modifying Tour failed - false input");
+                }*/
+                handler.ModifyTour(CurrentTour.TourID, CurrentTour.Name, CurrentTour.Description, CurrentTour.Distance);
                 MessageBox.Show("Success!");
                 log.Info("Modify tour");
             }
-            catch(Exception)
+            catch (Exception ex)
             {
-                log.Error("Modifying Tour failed");
+                log.Error(ex.Message);
             }
-            
         }
     }
 }

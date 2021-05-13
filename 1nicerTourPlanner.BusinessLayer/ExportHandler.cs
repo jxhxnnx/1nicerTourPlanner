@@ -1,12 +1,8 @@
 ﻿using _1nicerTourPlanner.Models;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace _1nicerTourPlanner.BusinessLayer
@@ -18,12 +14,10 @@ namespace _1nicerTourPlanner.BusinessLayer
         private string folderPath;
         private string exportPath;
 
-
         public void ExportTour(Tour CurrentTour)
         {
             JSONresult = JsonConvert.SerializeObject(CurrentTour);
-            folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
-            exportPath = folderPath + "\\" + CurrentTour.Name + ".json";
+            exportPath = setPath(CurrentTour);
             try
             {
                 if (File.Exists(exportPath))
@@ -46,10 +40,15 @@ namespace _1nicerTourPlanner.BusinessLayer
                 MessageBox.Show("Success");
                 log.Info("Export Tour");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                log.Error("Exporting Tour failed");
+                log.Error(ex.Message);
             }
+        }
+        public string setPath(Tour CurrentTour)
+        {
+            folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
+            return folderPath + "\\" + CurrentTour.Name + ".json";
         }
     }
 }

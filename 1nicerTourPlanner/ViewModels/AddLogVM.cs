@@ -1,13 +1,8 @@
-﻿using _1nicerTourPlanner.DataAccessLayer;
+﻿using _1nicerTourPlanner.BusinessLayer;
 using _1nicerTourPlanner.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
 using System.Windows;
+using System.Windows.Input;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -15,7 +10,8 @@ namespace _1nicerTourPlanner.ViewModels
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public DB db;
+        private AddLogHandler handler;
+        private Validator validator = new Validator();
         private ICommand clearCommand;
         private ICommand addLogCommand;
         public ICommand ClearCommand => clearCommand ??= new RelayCommand(Clear);
@@ -209,18 +205,63 @@ namespace _1nicerTourPlanner.ViewModels
         {
             get
             {
-                return (distance/totTime)*60;
+                if (Distance == 0 || TotTime == 0)
+                {
+                    return 0;
+                }
+                return (distance / totTime) * 60;
             }
         }
 
         public AddLogVM(Tour tour)
         {
-            db = new DB();
+            handler = new AddLogHandler();
             CurrentTour = tour;
         }
 
 
         private void Clear(object commandParameter)
+        {
+            ClearAll();
+        }
+
+
+
+        private void AddLog(object commandParameter)
+        {
+            try
+            {
+                if (Name == null || Report == null || Traveller == null || Vehicle == null || Weather == null)
+                {
+                    MessageBox.Show("Please fill everything");
+                    log.Error("Adding Log failed - missing input");
+                }
+                else if (!validator.IsNumber(Distance.ToString()) || !validator.IsNumber(TotTime.ToString()))
+                {
+                    MessageBox.Show("Please only use:\n0-9 for Distance and Total Time");
+                    log.Error("Adding Log failed - invalid input");
+                }
+                /*else if (!validator.IsAllowedInputExtended(Name) || !validator.IsAllowedInputExtended(Report)
+                    || !validator.IsAllowedInputExtended(Weather) || !validator.IsAllowedInputExtended(Traveller)
+                    || !validator.IsAllowedInputExtended(Vehicle))
+                {
+                    MessageBox.Show("Please only use:\na-z A-Z Ää Öö Üü 0-9 -_.:,!?=\nfor Name, Report, Weather, Traveller and Vehicle");
+                    log.Error("Adding Log failed - invalid input");
+                }*/
+                else
+                {
+                    handler.AddLog(Date, Distance, TotTime, TourID, Name, Report, Rating, Alone, Vehicle, Weather, Traveller, Speed);
+                    MessageBox.Show("Success!");
+                    ClearAll();
+                    log.Info("Adding Log");
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+            }
+        }
+        public void ClearAll()
         {
             Distance = 0;
             TotTime = 0;
@@ -235,30 +276,5 @@ namespace _1nicerTourPlanner.ViewModels
         }
 
 
-
-        private void AddLog(object commandParameter)
-        {
-            try
-            {
-                db.AddLog(Date, Distance, TotTime, TourID, Name, Report, Rating, Alone, Vehicle, Weather, Traveller, Speed);
-                MessageBox.Show("Success!");
-                Distance = 0;
-                TotTime = 0;
-                Name = "";
-                Report = "";
-                Rating = 0;
-                Alone = false;
-                Vehicle = "";
-                Weather = "";
-                Traveller = "";
-                Date = DateTime.Now;
-                log.Info("Adding Log");
-            }
-            catch(Exception)
-            {
-                log.Error("Adding Log failed");
-            }
-            
-        }
     }
 }

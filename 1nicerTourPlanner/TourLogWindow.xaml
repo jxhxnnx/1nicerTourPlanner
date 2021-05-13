@@ -5,9 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels="clr-namespace:_1nicerTourPlanner.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:TourLogVM}"
         mc:Ignorable="d"
-        Title="TourLogWindow" Height="450" Width="850">
+        Title="TourLogWindow" Height="450" Width="700">
     <Grid>
-        <DataGrid AutoGenerateColumns="False"
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Margin="10,5,5,5">Log List:</TextBlock>
+                <ListBox x:Name="listLogs"
+                                ItemsSource="{Binding Logs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedItem="{Binding CurrentLog, Mode=TwoWay}"
+                                DisplayMemberPath="Name"
+                                Margin="10,5,20,0" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="textSearchName" VerticalAlignment="Top" Width="400" Margin="10,5,0,5"
+                         Text="{Binding SearchName, Mode=TwoWay}" />
+                    <Button Width="50" Margin="5,5,0,5" Command="{Binding SearchCommand}">
+                        Search
+                    </Button>
+                    <Button Width="50" Margin="5,5,5,5" Command="{Binding ClearCommand}">
+                        Refresh
+                    </Button>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,5,5,5">Logname: </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,5,5,5">Distance in km:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Margin="5,5,5,5">Date:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Margin="5,5,5,5">Report:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Margin="5,5,5,5">Rating:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Margin="5,5,5,5">Total Time in min:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Margin="5,5,5,5">Alone:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="7" Margin="5,5,5,5">Vehicle:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="8" Margin="5,5,5,5">Weather:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="9" Margin="5,5,5,5">Traveller:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="10" Margin="5,5,5,5">Speed in km/h:</TextBlock>
+
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Name}" ></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Distance}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Date}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Report}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="4" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Rating}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="5" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.TotalTime}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="6" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Alone}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="7" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Vehicle}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="8" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Weather}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="9" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Traveller}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="10" Margin="5,5,5,5"
+                               Text="{Binding CurrentLog.Speed}"></TextBlock>
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Width="70" Margin="5,20,5,5"
+                            Command="{Binding ModifyLogCommand}">Modify</Button>
+                    <Button Width="70" Margin="5,20,5,5"
+                            Command="{Binding DeleteLogCommand}">Delete</Button>
+                </StackPanel>
+                    
+            </StackPanel>
+            
+        </Grid>
+
+
+
+
+        <!-- <DataGrid AutoGenerateColumns="False"
                               ItemsSource="{Binding Logs}"
                               Margin="5,10,5,0"
                               HorizontalAlignment="Center" 
@@ -51,6 +144,6 @@
                 
             </DataGrid.Columns>
             
-        </DataGrid>
+        </DataGrid>-->
     </Grid>
 </Window>

@@ -1,0 +1,10 @@
+{
+  "Logs": [],
+  "Name": "Tagesausflug",
+  "Start": "Wien",
+  "Destination": "Kottingbrunn",
+  "Description": "Nur mal so als ernsterTagesausflug",
+  "Distance": 21.0,
+  "TourID": 55,
+  "Imagepath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\Images\\Tagesausflugi.png"
+}

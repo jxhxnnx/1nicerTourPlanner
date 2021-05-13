@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.DataAccessLayer;
+using System;
 using System.Windows;
 using System.Windows.Input;
-using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.DataAccessLayer;
-using _1nicerTourPlanner.ViewModels;
+
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -23,13 +19,15 @@ namespace _1nicerTourPlanner.ViewModels
         public HTTPConnection httpCon;
         public HTTPResponse httpResp;
         public ImageHandler imageHandler;
-        private DB db;
+        private AddTourHandler handler;
+        private Validator validator;
         public AddTourVM()
         {
-            db = new DB();
+            handler = new AddTourHandler();
             httpCon = new HTTPConnection();
             httpResp = new HTTPResponse();
             imageHandler = new ImageHandler();
+            validator = new Validator();
         }
 
 
@@ -115,7 +113,22 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void AddTour(object commandParameter)
         {
-            if(NameExists(NewName))
+            if (NewStart == null || NewDestination == null || NewDescription == null)
+            {
+                MessageBox.Show("Please fill everything!");
+                log.Error("Adding Tour failed - missing input");
+            }
+            else if (!validator.IsAlphabet(NewStart) || !validator.IsAlphabet(NewDestination))
+            {
+                MessageBox.Show("Please only use a-z A-Z\nfor Start and Destination!");
+                log.Error("Adding Tour failed - false input");
+            }
+            else if (!validator.IsAllowedInput(NewName))
+            {
+                MessageBox.Show("Please only use:\na-z A-Z 0-9 -_.:,!?=\n for Name and Description additionally Ää Öö Üü");
+                log.Error("Adding Tour failed - false input");
+            }
+            else if (NameExists(NewName))
             {
                 MessageBox.Show("Please choose another name! Name must be unique!");
                 log.Error("Adding Tour failed - name already exists");
@@ -124,26 +137,31 @@ namespace _1nicerTourPlanner.ViewModels
             {
                 string response = httpCon.GetJsonResponse(NewStart, NewDestination);
                 httpResp.SetJObject(response);
-                string imagepath = imageHandler.SaveImage(httpResp.GetMapData(), NewName);
+                string imagepath = imageHandler.GetImagePath(httpResp.GetMapData(), NewName);
                 NewDistance = float.Parse(httpResp.GetMapData().Distance);
                 try
                 {
-                    db.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
+                    handler.AddTour(NewName, NewDescription, NewDistance, NewStart, NewDestination, imagepath);
                     MessageBox.Show("Success!");
-                    NewName = "";
-                    NewDescription = "";
-                    NewStart = "";
-                    NewDestination = "";
+                    ClearAll();
                     log.Info("Add tour");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    log.Error("Adding Tour failed");
+                    log.Error(ex.Message);
                 }
             }
-            
+
         }
+
+
+
         private void Clear(object commandParameter)
+        {
+            ClearAll();
+        }
+
+        public void ClearAll()
         {
             NewName = "";
             NewDescription = "";
@@ -151,14 +169,17 @@ namespace _1nicerTourPlanner.ViewModels
             NewStart = "";
             NewDestination = "";
         }
-        
+
         private bool NameExists(string name)
         {
-            if (db.NameExists(name))
+            if (handler.NameExists(name))
             {
                 return true;
             }
             return false;
         }
+
     }
 }
+
+

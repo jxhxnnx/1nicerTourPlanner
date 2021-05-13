@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1nicerTourPlanner.DataAccessLayer
 {
@@ -13,12 +9,12 @@ namespace _1nicerTourPlanner.DataAccessLayer
             string filename = "";
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.FileName = "Tour";
-            dialog.DefaultExt = ".json"; 
-            dialog.Filter = "Json files (.json)|*.json"; 
+            dialog.DefaultExt = ".json";
+            dialog.Filter = "Json files (.json)|*.json";
             Nullable<bool> result = dialog.ShowDialog();
             if (result == true)
             {
-                
+
                 filename = dialog.FileName;
             }
             return filename;

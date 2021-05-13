@@ -1,23 +1,6 @@
-﻿using _1nicerTourPlanner.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.Models;
 using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using System.Windows.Documents;
-using System.Windows;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using System.Configuration;
-using TextAlignment = iText.Layout.Properties.TextAlignment;
-using Paragraph = iText.Layout.Element.Paragraph;
-using iText.IO.Image;
-using iText.Kernel.Pdf.Canvas.Draw;
-using System.IO;
-using _1nicerTourPlanner.BusinessLayer;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -40,9 +23,9 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void PrintDetails(object commandParameter)
         {
-            
+
             printHandler.PrintDetailedReport(printTour);
-            
+
         }
         private void PrintSummary(object commandParameter)
         {
