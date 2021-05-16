@@ -21,6 +21,7 @@ namespace _1nicerTourPlanner.ViewModels
         private string openMessage;
         private Validator validator;
         private string filesFolder;
+        private string imagePath;
         private ObservableCollection<string> files;
         private Tour currentTour;
         private string currentFile;
@@ -36,6 +37,21 @@ namespace _1nicerTourPlanner.ViewModels
                 {
                     currentFile = value;
                     RaisePropertyChangedEvent(nameof(CurrentFile));
+                }
+            }
+        }
+        public string ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
+            set
+            {
+                if(imagePath != value)
+                {
+                    imagePath = value;
+                    RaisePropertyChangedEvent(nameof(ImagePath));
                 }
             }
         }
@@ -117,6 +133,8 @@ namespace _1nicerTourPlanner.ViewModels
             IFileHandler handler;
             try
             {
+                ImagePath = "";
+                OpenMessage = "";
                 string type = ExtractFileFormat();
                 if (validator.IsAllowedType(type))
                 {
@@ -124,12 +142,14 @@ namespace _1nicerTourPlanner.ViewModels
                     {
                         case ".png":
                             handler = new PNGHandler(CreateFullPath());
-                            OpenMessage = handler.Open();
+                            ImagePath = handler.Open();
                             break;
+
                         case ".pdf":
                             handler = new PDFHandler(CreateFullPath());
                             OpenMessage = handler.Open();
                             break;
+
                         case ".txt":
                             handler = new TXTHandler(CreateFullPath());
                             OpenMessage = handler.Open();
@@ -140,6 +160,7 @@ namespace _1nicerTourPlanner.ViewModels
                 {
                     log.Error("invalid data dype");
                 }
+                
             }
             catch(Exception ex)
             {
