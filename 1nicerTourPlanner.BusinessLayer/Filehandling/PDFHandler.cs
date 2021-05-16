@@ -16,11 +16,11 @@ namespace _1nicerTourPlanner.BusinessLayer.Filehandling
         {
             file = _file;
         }
-        public void Open()
+        public string Open()
         {
             ProcessStartInfo startInfo = new ProcessStartInfo(file) { UseShellExecute = true };
             Process.Start(startInfo);
-
+            return "PDF opens in new window";
         }
     }
 }

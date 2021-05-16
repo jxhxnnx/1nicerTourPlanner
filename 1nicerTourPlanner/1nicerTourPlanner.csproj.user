@@ -10,6 +10,9 @@
     <Compile Update="FilesWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ImageWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ModifyLogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="FilesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ImageWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

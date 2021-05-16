@@ -18,7 +18,7 @@ namespace _1nicerTourPlanner.ViewModels
     public class FilesVM : ViewModelBase
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        private string openMessage;
         private Validator validator;
         private string filesFolder;
         private ObservableCollection<string> files;
@@ -36,6 +36,21 @@ namespace _1nicerTourPlanner.ViewModels
                 {
                     currentFile = value;
                     RaisePropertyChangedEvent(nameof(CurrentFile));
+                }
+            }
+        }
+        public string OpenMessage
+        {
+            get
+            {
+                return openMessage;
+            }
+            set
+            {
+                if (openMessage != value)
+                {
+                    openMessage = value;
+                    RaisePropertyChangedEvent(nameof(OpenMessage));
                 }
             }
         }
@@ -109,15 +124,15 @@ namespace _1nicerTourPlanner.ViewModels
                     {
                         case ".png":
                             handler = new PNGHandler(CreateFullPath());
-                            handler.Open();
+                            OpenMessage = handler.Open();
                             break;
                         case ".pdf":
                             handler = new PDFHandler(CreateFullPath());
-                            handler.Open();
+                            OpenMessage = handler.Open();
                             break;
                         case ".txt":
                             handler = new TXTHandler(CreateFullPath());
-                            handler.Open();
+                            OpenMessage = handler.Open();
                             break;
                     }
                 }

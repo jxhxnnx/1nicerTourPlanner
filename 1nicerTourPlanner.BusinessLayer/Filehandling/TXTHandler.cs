@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,10 @@ namespace _1nicerTourPlanner.BusinessLayer.Filehandling
         {
             file = _file;
         }
-        public void Open()
+        public string Open()
         {
-            string filePath = ConfigurationManager.AppSettings["UploadsFolderPath"].ToString() + file;
-            
+            string content = File.ReadAllText(file);
+            return content;
         }
      }
 }
