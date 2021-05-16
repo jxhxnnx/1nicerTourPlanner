@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Exports\" />
+    <Folder Include="Uploads\" />
     <Folder Include="PDF\" />
   </ItemGroup>
 

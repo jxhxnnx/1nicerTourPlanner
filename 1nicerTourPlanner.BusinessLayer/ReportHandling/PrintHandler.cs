@@ -11,7 +11,7 @@ using System.Windows;
 using Paragraph = iText.Layout.Element.Paragraph;
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.ReportHandling
 {
     public class PrintHandler
     {
@@ -21,7 +21,7 @@ namespace _1nicerTourPlanner.BusinessLayer
         private string pdfPath;
         public void PrintDetailedReport(Tour printTour)
         {
-            pdfName = printTour.Name + ".pdf";
+            pdfName = printTour.TourID + ".pdf";
             pdfPath = ConfigurationManager.AppSettings["PDFFolderPath"].ToString() + "\\" + pdfName;
             try
             {
@@ -82,7 +82,7 @@ namespace _1nicerTourPlanner.BusinessLayer
 
         public void PrintSummaryReport(Tour printTour)
         {
-            pdfName = printTour.Name + "_summary.pdf";
+            pdfName = printTour.TourID + "_summary.pdf";
             pdfPath = ConfigurationManager.AppSettings["PDFFolderPath"].ToString() + "\\" + pdfName;
             try
             {

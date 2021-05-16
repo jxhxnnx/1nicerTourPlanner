@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.Helper
 {
     public class Validator
     {
@@ -48,6 +48,14 @@ namespace _1nicerTourPlanner.BusinessLayer
         {
             Regex r = new Regex("^[0-9]+$");
             if (r.IsMatch(input))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool IsAllowedType(string input)
+        {
+            if(input == ".png" || input == ".pdf" || input == ".txt")
             {
                 return true;
             }

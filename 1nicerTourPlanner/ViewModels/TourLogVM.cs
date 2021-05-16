@@ -7,6 +7,7 @@ using _1nicerTourPlanner.ViewModels;
 using System.Collections;
 using _1nicerTourPlanner.BusinessLayer;
 using System;
+using _1nicerTourPlanner.BusinessLayer.LogHandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {

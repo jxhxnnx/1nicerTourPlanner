@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\App.xaml
-71376488672
+8-1483337714
 
-20-1997553546
+22441808552
 213-1731414987
-MainWindow.xaml;ModifyLogWindow.xaml;ModifyTourWindow.xaml;NewLogWindow.xaml;NewTourWindow.xaml;PrintWindow.xaml;TourLogWindow.xaml;
+FilesWindow.xaml;MainWindow.xaml;ModifyLogWindow.xaml;ModifyTourWindow.xaml;NewLogWindow.xaml;NewTourWindow.xaml;PrintWindow.xaml;TourLogWindow.xaml;
 
-False
+True
 

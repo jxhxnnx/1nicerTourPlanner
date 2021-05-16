@@ -1,4 +1,5 @@
 ﻿using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.BusinessLayer.Helper;
 using NUnit.Framework;
 
 namespace _1nicerTourPlanner.Test

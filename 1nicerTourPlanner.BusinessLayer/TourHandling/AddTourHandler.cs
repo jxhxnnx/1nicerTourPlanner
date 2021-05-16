@@ -1,6 +1,6 @@
 ﻿using _1nicerTourPlanner.DataAccessLayer;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.TourHandling
 {
     public class AddTourHandler
     {

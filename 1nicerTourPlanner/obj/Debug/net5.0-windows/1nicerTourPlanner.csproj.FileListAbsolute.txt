@@ -57,3 +57,5 @@ C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTour
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ModifyLogWindow.g.cs
 C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\ModifyLogWindow.baml
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\FilesWindow.g.cs
+C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\obj\Debug\net5.0-windows\FilesWindow.baml

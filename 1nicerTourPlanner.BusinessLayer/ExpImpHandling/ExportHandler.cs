@@ -5,7 +5,7 @@ using System.Configuration;
 using System.IO;
 using System.Windows;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
 {
     public class ExportHandler
     {
@@ -48,7 +48,7 @@ namespace _1nicerTourPlanner.BusinessLayer
         public string setPath(Tour CurrentTour)
         {
             folderPath = ConfigurationManager.AppSettings["ExportFolderPath"].ToString();
-            return folderPath + "\\" + CurrentTour.Name + ".json";
+            return folderPath + "\\" + CurrentTour.TourID + ".json";
         }
     }
 }

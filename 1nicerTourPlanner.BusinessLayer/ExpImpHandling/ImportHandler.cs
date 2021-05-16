@@ -1,4 +1,5 @@
-﻿using _1nicerTourPlanner.DataAccessLayer;
+﻿using _1nicerTourPlanner.BusinessLayer.MapImageHandling;
+using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.Models;
 using Newtonsoft.Json.Linq;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
 {
     public class ImportHandler
     {
@@ -15,7 +16,7 @@ namespace _1nicerTourPlanner.BusinessLayer
         private HTTPResponse httpResp;
         private ImageHandler imageHandler;
         private TourDAO tourDAO;
-        private FileImport fileImport;
+        private JSONImport fileImport;
         private Tour importTour;
         private TourLog tourlog;
         private string fileName;
@@ -29,7 +30,7 @@ namespace _1nicerTourPlanner.BusinessLayer
             httpCon = new HTTPConnection();
             httpResp = new HTTPResponse();
             imageHandler = new ImageHandler();
-            fileImport = new FileImport();
+            fileImport = new JSONImport();
             importTour = new Tour();
             tourDAO = new TourDAO();
         }

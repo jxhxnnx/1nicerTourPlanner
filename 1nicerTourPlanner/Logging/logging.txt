@@ -351,3 +351,23 @@
 12:45:58,182 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Delete Tour
 12:46:06,946 [_1nicerTourPlanner.BusinessLayer.ImportHandler] INFO -Import Tour
 12:46:09,066 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+12:25:33,773 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+12:25:37,216 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+12:25:43,521 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+12:25:51,758 [_1nicerTourPlanner.BusinessLayer.ExportHandler] INFO -Export Tour
+12:25:53,359 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+13:54:09,438 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open New Tour Window
+13:54:33,944 [_1nicerTourPlanner.ViewModels.AddTourVM] INFO -Add tour
+15:45:38,384 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Das System kann die angegebene Datei nicht finden.
+15:45:40,098 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Das System kann die angegebene Datei nicht finden.
+15:49:06,771 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Das System kann die angegebene Datei nicht finden.
+15:49:14,123 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Das System kann die angegebene Datei nicht finden.
+15:59:16,612 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -invalid data dype
+15:59:52,333 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+15:59:54,089 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+15:59:54,252 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+15:59:54,395 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+15:59:54,550 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+16:00:55,422 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+16:02:02,967 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.
+16:03:15,847 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -The specified executable is not a valid application for this OS platform.

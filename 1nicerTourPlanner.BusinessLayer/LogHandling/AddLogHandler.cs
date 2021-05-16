@@ -1,7 +1,7 @@
 ﻿using _1nicerTourPlanner.DataAccessLayer;
 using System;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.LogHandling
 {
     public class AddLogHandler
     {

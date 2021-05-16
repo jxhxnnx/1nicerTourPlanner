@@ -2,7 +2,7 @@
 using _1nicerTourPlanner.Models;
 using System.Collections.Generic;
 
-namespace _1nicerTourPlanner.BusinessLayer
+namespace _1nicerTourPlanner.BusinessLayer.TourHandling
 {
     public class TourHandler
     {

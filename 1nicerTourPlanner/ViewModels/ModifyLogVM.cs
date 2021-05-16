@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using _1nicerTourPlanner.ViewModels;
 using _1nicerTourPlanner.BusinessLayer;
+using _1nicerTourPlanner.BusinessLayer.LogHandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {

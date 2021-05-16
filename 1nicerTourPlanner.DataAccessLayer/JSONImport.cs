@@ -2,7 +2,7 @@
 
 namespace _1nicerTourPlanner.DataAccessLayer
 {
-    public class FileImport
+    public class JSONImport
     {
         public string getFileName()
         {

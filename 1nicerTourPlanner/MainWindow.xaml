@@ -34,6 +34,12 @@
             <Button  Width="100" Margin="5,5,5,0" Command="{Binding PrintTourCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
                 Print Tour
             </Button>
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding GetFilesCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
+                Get Files
+            </Button>
+            <Button  Width="100" Margin="5,5,5,0" Command="{Binding UploadFilesCommand}"  IsEnabled="{Binding ElementName=listTours, Path=SelectedItems.Count}">
+                Upload Files
+            </Button>
         </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

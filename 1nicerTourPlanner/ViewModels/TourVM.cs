@@ -5,6 +5,12 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using _1nicerTourPlanner.ViewModels;
+using System.Configuration;
+using System.IO;
+using _1nicerTourPlanner.BusinessLayer.TourHandling;
+using _1nicerTourPlanner.BusinessLayer.ExpImpHandling;
+using _1nicerTourPlanner.BusinessLayer.Filehandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -15,7 +21,7 @@ namespace _1nicerTourPlanner.ViewModels
         private Tour currentTour;
         private string searchName;
         private TourHandler handler = new TourHandler();
-
+        private string filesFolder;
 
         private ICommand searchCommand;
         private ICommand clearCommand;
@@ -75,6 +81,7 @@ namespace _1nicerTourPlanner.ViewModels
         public TourVM()
         {
             InitListBox();
+            
         }
 
         private void InitListBox()
@@ -187,6 +194,24 @@ namespace _1nicerTourPlanner.ViewModels
             CurrentTour.Logs = handler.GetLogs(CurrentTour.TourID);
             PrintWindow printWindow = new PrintWindow(CurrentTour);
             printWindow.Show();
+        }
+
+        private ICommand getFilesCommand;
+        public ICommand GetFilesCommand => getFilesCommand ??= new RelayCommand(GetFiles);
+
+        private void GetFiles(object commandParameter)
+        {
+            FilesWindow filesWindow = new FilesWindow(CurrentTour);
+            filesWindow.Show();
+        }
+
+        private ICommand uploadFilesCommand;
+        public ICommand UploadFilesCommand => uploadFilesCommand ??= new RelayCommand(UploadFiles);
+
+        private void UploadFiles(object commandParameter)
+        {
+            FileHandler handler = new FileHandler(CurrentTour);
+            handler.UploadFile();
         }
     }
 }
