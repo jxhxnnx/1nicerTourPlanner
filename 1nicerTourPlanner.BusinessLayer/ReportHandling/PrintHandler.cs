@@ -6,6 +6,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using Paragraph = iText.Layout.Element.Paragraph;
@@ -73,6 +74,8 @@ namespace _1nicerTourPlanner.BusinessLayer.ReportHandling
 
                 document.Close();
                 MessageBox.Show("Success!");
+                ProcessStartInfo startInfo = new ProcessStartInfo(pdfPath) { UseShellExecute = true };
+                Process.Start(startInfo);
             }
             catch (Exception ex)
             {
@@ -129,6 +132,8 @@ namespace _1nicerTourPlanner.BusinessLayer.ReportHandling
 
                 document.Close();
                 MessageBox.Show("Success!");
+                ProcessStartInfo startInfo = new ProcessStartInfo(pdfPath) { UseShellExecute = true };
+                Process.Start(startInfo);
             }
             catch (Exception ex)
             {

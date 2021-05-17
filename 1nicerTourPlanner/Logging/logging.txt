@@ -374,3 +374,7 @@
 16:15:09,184 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Die Syntax für den Dateinamen, Verzeichnisnamen oder die Datenträgerbezeichnung ist falsch. : 'C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\UploadsC:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\Uploads\72\hallo.txt'
 16:15:09,856 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Die Syntax für den Dateinamen, Verzeichnisnamen oder die Datenträgerbezeichnung ist falsch. : 'C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\UploadsC:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\Uploads\72\hallo.txt'
 16:15:12,352 [_1nicerTourPlanner.ViewModels.FilesVM] ERROR -Die Syntax für den Dateinamen, Verzeichnisnamen oder die Datenträgerbezeichnung ist falsch. : 'C:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\UploadsC:\Users\Lenovo\Desktop\FHTechnikum\4.Semester\SWE2\1nicerTourPlanner\1nicerTourPlanner\Uploads\72\hallo.txt'
+08:42:38,596 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+08:42:45,110 [_1nicerTourPlanner.BusinessLayer.ReportHandling.PrintHandler] ERROR -Das System kann die angegebene Datei nicht finden.
+08:42:50,083 [_1nicerTourPlanner.BusinessLayer.ReportHandling.PrintHandler] ERROR -Das System kann die angegebene Datei nicht finden.
+08:43:45,916 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
