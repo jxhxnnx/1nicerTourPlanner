@@ -6681,6 +6681,7 @@
       "1nicerTourPlanner >= 1.0.0",
       "1nicerTourPlanner.BusinessLayer >= 1.0.0",
       "1nicerTourPlanner.DataAccessLayer >= 1.0.0",
+      "1nicerTourPlanner.Models >= 1.0.0",
       "Autofac.Extras.Moq >= 6.0.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "Moq >= 4.16.1",
@@ -6721,6 +6722,9 @@
             },
             "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.DataAccessLayer\\1nicerTourPlanner.DataAccessLayer.csproj": {
               "projectPath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.DataAccessLayer\\1nicerTourPlanner.DataAccessLayer.csproj"
+            },
+            "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.Models\\1nicerTourPlanner.Models.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner.Models\\1nicerTourPlanner.Models.csproj"
             },
             "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\1nicerTourPlanner.csproj": {
               "projectPath": "C:\\Users\\Lenovo\\Desktop\\FHTechnikum\\4.Semester\\SWE2\\1nicerTourPlanner\\1nicerTourPlanner\\1nicerTourPlanner.csproj"

@@ -1,16 +1,12 @@
-﻿using _1nicerTourPlanner.BusinessLayer;
+﻿using _1nicerTourPlanner.BusinessLayer.ExpImpHandling;
+using _1nicerTourPlanner.BusinessLayer.Filehandling;
+using _1nicerTourPlanner.BusinessLayer.TourHandling;
 using _1nicerTourPlanner.Models;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using System.Configuration;
-using System.IO;
-using _1nicerTourPlanner.BusinessLayer.TourHandling;
-using _1nicerTourPlanner.BusinessLayer.ExpImpHandling;
-using _1nicerTourPlanner.BusinessLayer.Filehandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -81,7 +77,7 @@ namespace _1nicerTourPlanner.ViewModels
         public TourVM()
         {
             InitListBox();
-            
+
         }
 
         private void InitListBox()
@@ -125,10 +121,10 @@ namespace _1nicerTourPlanner.ViewModels
         {
             try
             {
-                log.Info("Delete Tour");
                 handler.DeleteTour(currentTour);
                 Tours.Clear();
                 FillListBox();
+                log.Info("Delete Tour");
             }
             catch (Exception ex)
             {
@@ -138,27 +134,27 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void GetLogs(object commandParameter)
         {
-            log.Info("Open Log window");
             TourLogWindow logWindow = new TourLogWindow(CurrentTour);
             logWindow.Show();
+            log.Info("Open Log window");
         }
 
         private void ModifyTour(object commandParameter)
         {
-            log.Info("Open modify tour window");
             ModifyTourWindow modifyWindow = new ModifyTourWindow(currentTour);
             modifyWindow.Show();
+            log.Info("Open modify tour window");
         }
 
         private void CopyTour(object commandParameter)
         {
             try
             {
-                log.Info("Copy Tour");
                 handler.CopyTour(currentTour);
                 Tours.Clear();
                 FillListBox();
                 MessageBox.Show("Success!");
+                log.Info("Copy Tour");
             }
             catch (Exception ex)
             {
@@ -168,9 +164,9 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void NewLog(object commandParameter)
         {
-            log.Info("Open new log window");
             NewLogWindow newLogWindow = new NewLogWindow(CurrentTour);
             newLogWindow.Show();
+            log.Info("Open new log window");
         }
 
         private void ExportTour(object commandParameter)
@@ -178,6 +174,7 @@ namespace _1nicerTourPlanner.ViewModels
             CurrentTour.Logs = handler.GetLogs(CurrentTour.TourID);
             ExportHandler exportHandler = new ExportHandler();
             exportHandler.ExportTour(CurrentTour);
+            log.Info("Export Tour");
         }
 
         private void ImportTour(object commandParameter)
@@ -186,14 +183,15 @@ namespace _1nicerTourPlanner.ViewModels
             importHandler.ImportTour();
             Tours.Clear();
             FillListBox();
+            log.Info("Import Tour");
         }
 
         private void PrintTour(object commandParameter)
         {
-            log.Info("Open print window");
             CurrentTour.Logs = handler.GetLogs(CurrentTour.TourID);
             PrintWindow printWindow = new PrintWindow(CurrentTour);
             printWindow.Show();
+            log.Info("Open print window");
         }
 
         private ICommand getFilesCommand;
@@ -203,6 +201,7 @@ namespace _1nicerTourPlanner.ViewModels
         {
             FilesWindow filesWindow = new FilesWindow(CurrentTour);
             filesWindow.Show();
+            log.Info("Get Files");
         }
 
         private ICommand uploadFilesCommand;
@@ -212,6 +211,7 @@ namespace _1nicerTourPlanner.ViewModels
         {
             FileHandler handler = new FileHandler(CurrentTour);
             handler.UploadFile();
+            log.Info("Upload File");
         }
     }
 }

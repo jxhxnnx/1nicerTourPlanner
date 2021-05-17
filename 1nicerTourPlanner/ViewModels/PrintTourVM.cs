@@ -1,5 +1,4 @@
-﻿using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.BusinessLayer.ReportHandling;
+﻿using _1nicerTourPlanner.BusinessLayer.ReportHandling;
 using _1nicerTourPlanner.Models;
 using System.Windows.Input;
 

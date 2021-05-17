@@ -1,5 +1,4 @@
-﻿using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.BusinessLayer.Helper;
+﻿using _1nicerTourPlanner.BusinessLayer.Helper;
 using _1nicerTourPlanner.BusinessLayer.TourHandling;
 using _1nicerTourPlanner.Models;
 using System;

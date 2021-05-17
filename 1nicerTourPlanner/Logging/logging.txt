@@ -378,3 +378,4 @@
 08:42:45,110 [_1nicerTourPlanner.BusinessLayer.ReportHandling.PrintHandler] ERROR -Das System kann die angegebene Datei nicht finden.
 08:42:50,083 [_1nicerTourPlanner.BusinessLayer.ReportHandling.PrintHandler] ERROR -Das System kann die angegebene Datei nicht finden.
 08:43:45,916 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
+10:03:40,491 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open New Tour Window

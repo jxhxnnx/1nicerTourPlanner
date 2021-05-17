@@ -1,13 +1,11 @@
-﻿using _1nicerTourPlanner.DataAccessLayer;
+﻿using _1nicerTourPlanner.BusinessLayer.LogHandling;
+using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using System.Collections;
-using _1nicerTourPlanner.BusinessLayer;
-using System;
-using _1nicerTourPlanner.BusinessLayer.LogHandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -115,7 +113,7 @@ namespace _1nicerTourPlanner.ViewModels
             FillListBox();
         }
 
-        
+
         private void ModifyLog(object commandParameter)
         {
             ModifyLogWindow modifyWindow = new ModifyLogWindow(CurrentLog);

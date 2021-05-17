@@ -21,7 +21,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
             return dataAccess.GetLogs(tourID);
         }
 
-        
+
 
         public void ModifyTour(int tourID, string name, string description, float distance)
         {

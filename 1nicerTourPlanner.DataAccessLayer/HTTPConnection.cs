@@ -7,6 +7,8 @@ namespace _1nicerTourPlanner.DataAccessLayer
 {
     public class HTTPConnection : IHTTPConnection
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private string urlData;
         private string serverResponse;
         public HTTPConnection()
@@ -28,14 +30,22 @@ namespace _1nicerTourPlanner.DataAccessLayer
         }
         public void HandleRequest(Uri completeRequest)
         {
-            WebRequest request = WebRequest.Create(completeRequest);
-            WebResponse response = request.GetResponse();
-            using (Stream stream = response.GetResponseStream())
+            try
             {
-                StreamReader reader = new StreamReader(stream);
-                serverResponse = reader.ReadToEnd();
+                WebRequest request = WebRequest.Create(completeRequest);
+                WebResponse response = request.GetResponse();
+                using (Stream stream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(stream);
+                    serverResponse = reader.ReadToEnd();
+                }
+                response.Close();
             }
-            response.Close();
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+            }
+
         }
     }
 }

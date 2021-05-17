@@ -1,17 +1,13 @@
-﻿using _1nicerTourPlanner.Models;
+﻿using _1nicerTourPlanner.BusinessLayer.Filehandling;
+using _1nicerTourPlanner.BusinessLayer.Helper;
+using _1nicerTourPlanner.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using _1nicerTourPlanner.BusinessLayer.Helper;
-using _1nicerTourPlanner.BusinessLayer.Filehandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {
@@ -48,7 +44,7 @@ namespace _1nicerTourPlanner.ViewModels
             }
             set
             {
-                if(imagePath != value)
+                if (imagePath != value)
                 {
                     imagePath = value;
                     RaisePropertyChangedEvent(nameof(ImagePath));
@@ -122,7 +118,7 @@ namespace _1nicerTourPlanner.ViewModels
                     Files.Add(file);
                 }
             }
-
+            log.Info("Get All Files");
         }
 
         private ICommand openFileCommand;
@@ -155,24 +151,25 @@ namespace _1nicerTourPlanner.ViewModels
                             OpenMessage = handler.Open();
                             break;
                     }
+                    log.Info("Open File");
                 }
                 else
                 {
                     log.Error("invalid data dype");
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Error(ex.Message);
             }
-            
+
 
         }
         public string ExtractFileFormat()
         {
             return Path.GetExtension(CurrentFile);
-            
+
         }
         public string CreateFullPath()
         {

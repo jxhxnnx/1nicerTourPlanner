@@ -62,7 +62,7 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
 
         public void setImportTour()
         {
-           try
+            try
             {
                 fileName = fileImport.getFileName();
                 jsonstring = File.ReadAllText(fileName).ToString();
@@ -93,30 +93,38 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
         public void createLog(string logData)
         {
             logList = new List<TourLog>();
-            if (logData != "[]")
+            try
             {
-                JArray logJson = SetJsonLogs(logData);
-                foreach (JObject singleProp in logJson)
+                if (logData != "[]")
                 {
-                    tourlog = new TourLog();
-                    tourlog.Date = DateTime.Parse(singleProp["Date"].ToString());
-                    tourlog.Distance = float.Parse(singleProp["Distance"].ToString());
-                    tourlog.TotalTime = float.Parse(singleProp["TotalTime"].ToString());
-                    tourlog.Name = singleProp["Name"].ToString();
-                    tourlog.Report = singleProp["Report"].ToString();
-                    tourlog.Rating = int.Parse(singleProp["Rating"].ToString());
-                    tourlog.Alone = bool.Parse(singleProp["Alone"].ToString());
-                    tourlog.Vehicle = singleProp["Vehicle"].ToString();
-                    tourlog.Weather = singleProp["Weather"].ToString();
-                    tourlog.Traveller = singleProp["Traveller"].ToString();
-                    tourlog.Speed = float.Parse(singleProp["Speed"].ToString());
-                    logList.Add(tourlog);
+                    JArray logJson = SetJsonLogs(logData);
+                    foreach (JObject singleProp in logJson)
+                    {
+                        tourlog = new TourLog();
+                        tourlog.Date = DateTime.Parse(singleProp["Date"].ToString());
+                        tourlog.Distance = float.Parse(singleProp["Distance"].ToString());
+                        tourlog.TotalTime = float.Parse(singleProp["TotalTime"].ToString());
+                        tourlog.Name = singleProp["Name"].ToString();
+                        tourlog.Report = singleProp["Report"].ToString();
+                        tourlog.Rating = int.Parse(singleProp["Rating"].ToString());
+                        tourlog.Alone = bool.Parse(singleProp["Alone"].ToString());
+                        tourlog.Vehicle = singleProp["Vehicle"].ToString();
+                        tourlog.Weather = singleProp["Weather"].ToString();
+                        tourlog.Traveller = singleProp["Traveller"].ToString();
+                        tourlog.Speed = float.Parse(singleProp["Speed"].ToString());
+                        logList.Add(tourlog);
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                log.Error(ex.Message);
+            }
+            
         }
         public void AddTourLogs(int tourID)
         {
-            foreach(var item in logList)
+            foreach (var item in logList)
             {
                 tourDAO.AddLog(item.Date, item.Distance, item.TotalTime, tourID, item.Name, item.Report, item.Rating, item.Alone, item.Vehicle, item.Weather, item.Traveller, item.Speed);
             }

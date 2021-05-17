@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\1nicerTourPlanner.BusinessLayer\1nicerTourPlanner.BusinessLayer.csproj" />
     <ProjectReference Include="..\1nicerTourPlanner.DataAccessLayer\1nicerTourPlanner.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\1nicerTourPlanner.Models\1nicerTourPlanner.Models.csproj" />
     <ProjectReference Include="..\1nicerTourPlanner\1nicerTourPlanner.csproj" />
   </ItemGroup>
 

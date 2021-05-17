@@ -1,12 +1,8 @@
 ﻿using _1nicerTourPlanner.Models;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1nicerTourPlanner.BusinessLayer.Filehandling
 {
@@ -78,7 +74,7 @@ namespace _1nicerTourPlanner.BusinessLayer.Filehandling
                     client.DownloadFile(finalUrl, imagePath);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Error(ex.Message);
             }

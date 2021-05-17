@@ -11,6 +11,7 @@
           "1nicerTourPlanner": "1.0.0",
           "1nicerTourPlanner.BusinessLayer": "1.0.0",
           "1nicerTourPlanner.DataAccessLayer": "1.0.0",
+          "1nicerTourPlanner.Models": "1.0.0",
           "Autofac.Extras.Moq": "6.0.0",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "Moq": "4.16.1",

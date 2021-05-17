@@ -55,7 +55,7 @@ namespace _1nicerTourPlanner.BusinessLayer.Helper
         }
         public bool IsAllowedType(string input)
         {
-            if(input == ".png" || input == ".pdf" || input == ".txt")
+            if (input == ".png" || input == ".pdf" || input == ".txt")
             {
                 return true;
             }

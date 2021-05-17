@@ -1,5 +1,4 @@
-﻿using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.BusinessLayer.Helper;
+﻿using _1nicerTourPlanner.BusinessLayer.Helper;
 using NUnit.Framework;
 
 namespace _1nicerTourPlanner.Test
@@ -61,6 +60,16 @@ namespace _1nicerTourPlanner.Test
         public void is_number_shoudl_fail_test()
         {
             Assert.IsFalse(validator.IsNumber("xy"));
+        }
+        [Test]
+        public void type_is_correct_test()
+        {
+            Assert.IsTrue(validator.IsAllowedType(".png"));
+        }
+        [Test]
+        public void type_is_false_test()
+        {
+            Assert.IsFalse(validator.IsAllowedType(".ppt"));
         }
     }
 }

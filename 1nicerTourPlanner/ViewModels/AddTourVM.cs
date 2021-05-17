@@ -1,5 +1,4 @@
-﻿using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.BusinessLayer.Helper;
+﻿using _1nicerTourPlanner.BusinessLayer.Helper;
 using _1nicerTourPlanner.BusinessLayer.MapImageHandling;
 using _1nicerTourPlanner.BusinessLayer.TourHandling;
 using _1nicerTourPlanner.DataAccessLayer;
@@ -124,16 +123,16 @@ namespace _1nicerTourPlanner.ViewModels
             else if (!validator.IsAlphabet(NewStart) || !validator.IsAlphabet(NewDestination))
             {
                 MessageBox.Show("Please only use a-z A-Z\nfor Start and Destination!");
-                log.Error("Adding Tour failed - false input");
+                log.Error("Adding Tour failed - wrong input");
             }
             else if (!validator.IsAllowedInput(NewName))
             {
                 MessageBox.Show("Please only use:\na-z A-Z 0-9 -_.:,!?=\n for Name and Description additionally Ää Öö Üü");
-                log.Error("Adding Tour failed - false input");
+                log.Error("Adding Tour failed - wrong input");
             }
             else if (NameExists(NewName))
             {
-                MessageBox.Show("Please choose another name! Name must be unique!");
+                MessageBox.Show("Please choose another name!");
                 log.Error("Adding Tour failed - name already exists");
             }
             else

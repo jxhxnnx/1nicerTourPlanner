@@ -1,18 +1,14 @@
-﻿using _1nicerTourPlanner.Models;
+﻿using _1nicerTourPlanner.BusinessLayer.LogHandling;
+using _1nicerTourPlanner.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using _1nicerTourPlanner.ViewModels;
-using _1nicerTourPlanner.BusinessLayer;
-using _1nicerTourPlanner.BusinessLayer.LogHandling;
 
 namespace _1nicerTourPlanner.ViewModels
 {
     public class ModifyLogVM : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private TourLog currentLog;
         private ModifyLogHandler handler;
         public TourLog CurrentLog
@@ -220,7 +216,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void ModifyLog(object commandParameter)
         {
-            TourLog log = new TourLog()
+            TourLog tlog = new TourLog()
             {
                 Name = CurrentLog.Name,
                 Distance = CurrentLog.Distance,
@@ -236,7 +232,8 @@ namespace _1nicerTourPlanner.ViewModels
                 TourID = CurrentLog.TourID,
                 logID = CurrentLog.logID
             };
-            handler.ModifyLog(log);
+            handler.ModifyLog(tlog);
+            log.Info("Log modified");
         }
     }
 }
