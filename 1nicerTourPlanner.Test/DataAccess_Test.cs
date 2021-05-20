@@ -3,12 +3,26 @@ using _1nicerTourPlanner.Models;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace _1nicerTourPlanner.Test
 {
     [TestFixture]
-    public class DB_Test
+    public class DataAccess_Test
     {
+        private TestContext testContextInstance;
+
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
         [Test]
         public void get_tours_test()
         {
@@ -17,18 +31,23 @@ namespace _1nicerTourPlanner.Test
 
             List<Tour> test = mock.Object.GetTours();
 
-            Assert.That(test.Count != 0);
+            Assert.That(test.Count > 0);
+            Assert.AreEqual(test[0].Name, "Name");
         }
 
         [Test]
         public void name_exists_test()
         {
-            Tour testTour = GetSampleTours()[0];
-            var mock = new Mock<IDataAccess>();
-            mock.Setup(x => x.NameExists(It.Is<string>(i => i == "Name"))).Returns(true);
-            bool test = testTour.Name == "Name";
+            DB db = new DB();
+            Assert.IsTrue(db.NameExists("Artouro"));
+        }
 
-            Assert.AreEqual(mock.Object.NameExists("Name"), test);
+        [Test]
+        public void connectionstring_test()
+        {
+            string conString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            TestContext.WriteLine(conString);
+            Assert.IsTrue(conString == "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;");
         }
 
         [Test]
@@ -40,8 +59,7 @@ namespace _1nicerTourPlanner.Test
 
             List<TourLog> test = mock.Object.GetLogs(3);
 
-            Assert.That(test[0].TourID == 3);
-            //mock.Setup(foo => foo.Add(It.Is<int>(i => i % 2 == 0))).Returns(true);
+            Assert.That(test.Count == 2);
         }
 
         private List<TourLog> GetLog(int id)
@@ -114,7 +132,7 @@ namespace _1nicerTourPlanner.Test
                     Rating = 9,
                     Alone = true,
                     Speed = 90,
-                    TourID = 2
+                    TourID = 3
                 },
                 new TourLog
                 {

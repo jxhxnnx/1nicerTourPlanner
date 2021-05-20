@@ -22,4 +22,10 @@
     <ProjectReference Include="..\1nicerTourPlanner\1nicerTourPlanner.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="testhost.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

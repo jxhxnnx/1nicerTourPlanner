@@ -42,7 +42,7 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
                 if (tourDAO.NameExists(importTour.Name))
                 {
                     MessageBox.Show("Name already exists! Name must be unique");
-                    log.Error("Importing Tour failed - name already exists");
+                    log.Error("Importing Tour failed - Name already exists!");
                 }
                 else
                 {
@@ -116,17 +116,20 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Error(ex.Message);
             }
-            
+
         }
         public void AddTourLogs(int tourID)
         {
-            foreach (var item in logList)
+            if (logList != null && logList.Count > 0)
             {
-                tourDAO.AddLog(item.Date, item.Distance, item.TotalTime, tourID, item.Name, item.Report, item.Rating, item.Alone, item.Vehicle, item.Weather, item.Traveller, item.Speed);
+                foreach (var item in logList)
+                {
+                    tourDAO.AddLog(item.Date, item.Distance, item.TotalTime, tourID, item.Name, item.Report, item.Rating, item.Alone, item.Vehicle, item.Weather, item.Traveller, item.Speed);
+                }
             }
         }
     }

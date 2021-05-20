@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace _1nicerTourPlanner.ViewModels
 {
-    class AddLogVM : ViewModelBase
+    public class AddLogVM : ViewModelBase
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -216,7 +216,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         public AddLogVM(Tour tour)
         {
-            handler = new AddLogHandler();
+            //handler = new AddLogHandler();
             CurrentTour = tour;
         }
 

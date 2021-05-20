@@ -11,6 +11,10 @@ namespace _1nicerTourPlanner.BusinessLayer.LogHandling
         {
             tourDAO = new TourDAO();
         }
+        public List<TourLog> GetLogs(int tourID)
+        {
+            return tourDAO.GetLogs(tourID);
+        }
 
         public IEnumerable<TourLog> Search(string logName, int tourID, bool caseSensitive = false)
         {

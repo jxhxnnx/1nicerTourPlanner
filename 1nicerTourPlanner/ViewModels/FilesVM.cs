@@ -105,7 +105,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         }
 
-        private void GetAllFiles()
+        public void GetAllFiles()
         {
 
             filesFolder = ConfigurationManager.AppSettings["UploadsFolderPath"].ToString();

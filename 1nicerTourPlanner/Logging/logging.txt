@@ -379,3 +379,66 @@
 08:42:50,083 [_1nicerTourPlanner.BusinessLayer.ReportHandling.PrintHandler] ERROR -Das System kann die angegebene Datei nicht finden.
 08:43:45,916 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open print window
 10:03:40,491 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open New Tour Window
+18:35:14,815 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:35:34,475 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:39:18,141 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:43:07,740 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:49:15,049 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:49:15,057 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:51:53,766 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:51:53,774 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:52:26,222 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:52:26,229 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:53:58,730 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:53:58,737 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:55:39,664 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:55:39,672 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:58:35,389 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+18:58:35,397 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:02:31,648 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:02:31,656 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:03:31,858 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:03:31,865 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:05:22,830 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:05:22,954 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+19:06:42,294 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+19:40:07,641 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open New Tour Window
+11:41:49,286 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open modify tour window
+11:42:04,435 [_1nicerTourPlanner.ViewModels.ModifyTourVM] INFO -Modify tour
+11:42:07,539 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open Log window
+11:42:10,007 [_1nicerTourPlanner.ViewModels.TourLogVM] INFO -Open Modify Log Window
+22:28:04,248 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] ERROR -Empty path name is not legal. (Parameter 'path')
+22:28:04,424 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Parameter 'name' must have its value set
+22:28:04,548 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:28:04,676 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:34:29,436 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Upload File
+22:34:31,455 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:34:31,753 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+22:34:34,194 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:34:39,215 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:34:39,241 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+22:34:43,119 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:34:43,151 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+22:34:45,400 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:34:47,585 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:34:49,507 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:34:52,276 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:34:55,007 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Open File
+22:35:48,750 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:35:48,787 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+22:35:54,953 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:35:54,986 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Get Files
+22:37:41,325 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] ERROR -Empty path name is not legal. (Parameter 'path')
+22:37:41,501 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Parameter 'name' must have its value set
+22:37:41,605 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:37:41,710 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:39:45,610 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] ERROR -Empty path name is not legal. (Parameter 'path')
+22:39:45,716 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Parameter 'name' must have its value set
+22:39:45,828 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:39:45,915 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:40:28,592 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] ERROR -Empty path name is not legal. (Parameter 'path')
+22:40:28,725 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Parameter 'name' must have its value set
+22:40:28,862 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:40:28,978 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
+22:40:30,518 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] INFO -Import Tour
+22:40:30,603 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Import Tour

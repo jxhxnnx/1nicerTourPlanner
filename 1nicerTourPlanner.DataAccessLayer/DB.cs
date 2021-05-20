@@ -15,6 +15,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         public DB()
         {
             connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            //connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;";
             con = GetConnection(connectionString);
         }
         private static NpgsqlConnection GetConnection(string connectionString)

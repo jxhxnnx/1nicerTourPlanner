@@ -71,7 +71,6 @@ namespace _1nicerTourPlanner.ViewModels
         public List<TourLog> ListLog;
         public TourLogVM(Tour tour)
         {
-            tourDAO = new TourDAO();
             currentTour = tour;
             handler = new TourLogHandler();
             InitListBox();
@@ -89,7 +88,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         private void FillListBox()
         {
-            ListLog = tourDAO.GetLogs(currentTour.TourID);
+            ListLog = handler.GetLogs(currentTour.TourID);
             foreach (TourLog log in ListLog)
             {
                 logs.Add(log);
