@@ -14,6 +14,7 @@ namespace _1nicerTourPlanner.ViewModels
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+
         private Tour currentTour;
         private string searchName;
         private TourHandler handler = new TourHandler();
@@ -107,6 +108,12 @@ namespace _1nicerTourPlanner.ViewModels
         {
             Tours.Clear();
             SearchName = "";
+            FillListBox();
+        }
+
+        public void UpdateListBox()
+        {
+            Tours.Clear();
             FillListBox();
         }
 

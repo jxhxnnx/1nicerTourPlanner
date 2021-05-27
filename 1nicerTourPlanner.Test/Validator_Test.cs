@@ -14,7 +14,7 @@ namespace _1nicerTourPlanner.Test
         }
 
         [Test]
-        public void is_alphabet_should_fail_test()
+        public void is_not_alphabet__test()
         {
             Assert.IsFalse(validator.IsAlphabet("Testä"));
         }
@@ -33,7 +33,7 @@ namespace _1nicerTourPlanner.Test
         }
 
         [Test]
-        public void is_alphabet_and_number_should_fail_test()
+        public void is_not_alphabet_and_number_test()
         {
             Assert.IsFalse(validator.IsAlphabetOrNumber("ü2Test("));
         }
@@ -45,7 +45,7 @@ namespace _1nicerTourPlanner.Test
         }
 
         [Test]
-        public void is_allowed_input_should_fail_test()
+        public void is_not_allowed_input_test()
         {
             Assert.IsFalse(validator.IsAllowedInput("()"));
         }
@@ -57,7 +57,7 @@ namespace _1nicerTourPlanner.Test
         }
 
         [Test]
-        public void is_number_shoudl_fail_test()
+        public void is_no_number_test()
         {
             Assert.IsFalse(validator.IsNumber("xy"));
         }

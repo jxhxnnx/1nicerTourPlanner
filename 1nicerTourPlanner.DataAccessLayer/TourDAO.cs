@@ -10,7 +10,7 @@ namespace _1nicerTourPlanner.DataAccessLayer
         private IDataAccess dataAccess;
         public TourDAO()
         {
-            dataAccess = new DB();
+            dataAccess = DB.GetInstance();
         }
         public List<Tour> GetTours()
         {

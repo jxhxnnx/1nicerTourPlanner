@@ -442,3 +442,9 @@
 22:40:28,978 [_1nicerTourPlanner.DataAccessLayer.DB] ERROR -Connection already open
 22:40:30,518 [_1nicerTourPlanner.BusinessLayer.ExpImpHandling.ImportHandler] INFO -Import Tour
 22:40:30,603 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Import Tour
+22:21:06,407 [_1nicerTourPlanner.ViewModels.TourVM] INFO -Open New Tour Window
+22:21:24,551 [_1nicerTourPlanner.ViewModels.AddTourVM] INFO -Add tour
+22:35:32,711 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:35:32,721 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:35:32,723 [_1nicerTourPlanner.ViewModels.FilesVM] INFO -Get All Files
+22:35:33,173 [_1nicerTourPlanner.DataAccessLayer.ImageHandler] ERROR -The remote server returned an error: (400) Bad Request.

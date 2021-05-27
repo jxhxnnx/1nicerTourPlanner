@@ -12,13 +12,28 @@ namespace _1nicerTourPlanner.Test
             Tour tour = new Tour();
             AddLogVM addLogVM = new AddLogVM(tour) { Distance = 100, TotTime = 60 };
             Assert.AreEqual(100, addLogVM.Speed);
-            addLogVM.Distance = 0;
-            addLogVM.TotTime = 0;
+        }
+
+        [Test]
+        public void speed_correct_distance_tottime_zero()
+        {
+            Tour tour = new Tour();
+            AddLogVM addLogVM = new AddLogVM(tour) { Distance = 0, TotTime = 0 };
             Assert.AreEqual(0, addLogVM.Speed);
-            addLogVM.Distance = 100;
+        }
+
+        [Test]
+        public void speed_correct_tottime_zero()
+        {
+            Tour tour = new Tour();
+            AddLogVM addLogVM = new AddLogVM(tour) { Distance = 100, TotTime = 0 };
             Assert.AreEqual(0, addLogVM.Speed);
-            addLogVM.Distance = 0;
-            addLogVM.TotTime = 60;
+        }
+        [Test]
+        public void speed_correct_distance_zero()
+        {
+            Tour tour = new Tour();
+            AddLogVM addLogVM = new AddLogVM(tour) { Distance = 0, TotTime = 60 };
             Assert.AreEqual(0, addLogVM.Speed);
         }
 

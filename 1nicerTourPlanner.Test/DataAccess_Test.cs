@@ -38,7 +38,7 @@ namespace _1nicerTourPlanner.Test
         [Test]
         public void name_exists_test()
         {
-            DB db = new DB();
+            DB db = DB.GetInstance();
             Assert.IsTrue(db.NameExists("Artouro"));
         }
 
