@@ -19,9 +19,15 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Exports\" />
+    <Folder Include="Logging\" />
     <Folder Include="Uploads\" />
     <Folder Include="PDF\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

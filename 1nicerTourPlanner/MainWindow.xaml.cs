@@ -2,6 +2,7 @@
 using System.Windows;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
+
 namespace _1nicerTourPlanner
 {
     /// <summary>
@@ -11,6 +12,7 @@ namespace _1nicerTourPlanner
     {
         public MainWindow()
         {
+            log4net.Config.XmlConfigurator.Configure();
             InitializeComponent();
             this.DataContext = new TourVM();
         }

@@ -1,8 +1,11 @@
+using _1nicerTourPlanner.BusinessLayer.TourHandling;
 using _1nicerTourPlanner.DataAccessLayer;
 using _1nicerTourPlanner.Models;
+using _1nicerTourPlanner.ViewModels;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 
 namespace _1nicerTourPlanner.Test
@@ -23,17 +26,6 @@ namespace _1nicerTourPlanner.Test
                 testContextInstance = value;
             }
         }
-        [Test]
-        public void get_tours_test()
-        {
-            var mock = new Mock<IDataAccess>();
-            mock.Setup(x => x.GetTours()).Returns(GetSampleTours());
-
-            List<Tour> test = mock.Object.GetTours();
-
-            Assert.That(test.Count > 0);
-            Assert.AreEqual(test[0].Name, "Name");
-        }
 
         [Test]
         public void name_exists_test()
@@ -50,17 +42,7 @@ namespace _1nicerTourPlanner.Test
             Assert.IsTrue(conString == "Server=localhost;Port=5432;User Id=postgres;Password=passwort;Database=TourPlanner;");
         }
 
-        [Test]
-        public void get_correct_log_test()
-        {
-            var mock = new Mock<IDataAccess>();
-            int id = 3;
-            mock.Setup(x => x.GetLogs(id)).Returns(GetLog(id));
 
-            List<TourLog> test = mock.Object.GetLogs(3);
-
-            Assert.That(test.Count == 2);
-        }
 
         private List<TourLog> GetLog(int id)
         {

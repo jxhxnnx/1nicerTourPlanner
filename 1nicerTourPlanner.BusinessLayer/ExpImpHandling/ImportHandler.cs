@@ -18,12 +18,12 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
         private TourDAO tourDAO;
         private JSONImport fileImport;
         private Tour importTour;
-        private TourLog tourlog;
+        public TourLog tourlog;
         private string fileName;
         private string jsonstring;
         private string response;
         private string imagepath;
-        List<TourLog> logList;
+        public List<TourLog> logList;
 
         public ImportHandler()
         {
@@ -37,27 +37,29 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
         public void ImportTour()
         {
             setImportTour();
-            try
+            if (fileName != "")
             {
-                if (tourDAO.NameExists(importTour.Name))
+                try
                 {
-                    MessageBox.Show("Name already exists! Name must be unique");
-                    log.Error("Importing Tour failed - Name already exists!");
+                    if (tourDAO.NameExists(importTour.Name))
+                    {
+                        MessageBox.Show("Name already exists! Name must be unique");
+                        log.Error("Importing Tour failed - Name already exists!");
+                    }
+                    else
+                    {
+                        tourDAO.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
+                        AddTourLogs(tourDAO.GetIDtoName(importTour.Name));
+
+                    }
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    tourDAO.AddTour(importTour.Name, importTour.Description, importTour.Distance, importTour.Start, importTour.Destination, imagepath);
-                    AddTourLogs(tourDAO.GetIDtoName(importTour.Name));
-                    MessageBox.Show("Success!");
-
-                    log.Info("Import Tour");
+                    log.Error(ex.Message);
                 }
+            }
 
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex.Message);
-            }
         }
 
         public void setImportTour()
@@ -65,19 +67,29 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
             try
             {
                 fileName = fileImport.getFileName();
-                jsonstring = File.ReadAllText(fileName).ToString();
-                JObject jsondata = JObject.Parse(jsonstring);
+                if (fileName != "")
+                {
+                    jsonstring = File.ReadAllText(fileName).ToString();
+                    JObject jsondata = JObject.Parse(jsonstring);
 
-                importTour.Name = jsondata["Name"].ToString();
-                importTour.Start = jsondata["Start"].ToString();
-                importTour.Destination = jsondata["Destination"].ToString();
-                importTour.Description = jsondata["Description"].ToString();
-                string logData = jsondata["Logs"].ToString();
-                createLog(logData);
-                response = httpCon.GetJsonResponse(importTour.Start, importTour.Destination);
-                httpResp.SetJObject(response);
-                imagepath = imageHandler.GetImagePath(httpResp.GetMapData(), importTour.Name);
-                importTour.Distance = float.Parse(httpResp.GetMapData().Distance);
+                    importTour.Name = jsondata["Name"].ToString();
+                    importTour.Start = jsondata["Start"].ToString();
+                    importTour.Destination = jsondata["Destination"].ToString();
+                    importTour.Description = jsondata["Description"].ToString();
+                    string logData = jsondata["Logs"].ToString();
+                    createLog(logData);
+                    response = httpCon.GetJsonResponse(importTour.Start, importTour.Destination);
+                    httpResp.SetJObject(response);
+                    imagepath = imageHandler.GetImagePath(httpResp.GetMapData(), importTour.Name);
+                    importTour.Distance = float.Parse(httpResp.GetMapData().Distance);
+
+
+
+                }
+                else
+                {
+                    log.Info("No File chosen");
+                }
             }
             catch (Exception ex)
             {
@@ -129,6 +141,8 @@ namespace _1nicerTourPlanner.BusinessLayer.ExpImpHandling
                 foreach (var item in logList)
                 {
                     tourDAO.AddLog(item.Date, item.Distance, item.TotalTime, tourID, item.Name, item.Report, item.Rating, item.Alone, item.Vehicle, item.Weather, item.Traveller, item.Speed);
+                    MessageBox.Show("Success!");
+                    log.Info("Import Tour");
                 }
             }
         }

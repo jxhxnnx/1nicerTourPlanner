@@ -1,0 +1,56 @@
+CREATE OR REPLACE PROCEDURE fluege_infos_hilfe(my_flugID IN NUMBER)
+AS 
+	CURSOR my_passenengers IS SELECT LAND.BEZEICHNUNG, COUNT(PASSAGIERLISTE.PERSONID) AS ANZAHL FROM PASSAGIERLISTE
+	JOIN REISEPASS ON PASSAGIERLISTE.PERSONID = REISEPASS.PERSONID
+	JOIN LAND ON REISEPASS.LANDID = LAND.LANDID
+	WHERE FLUGID = 1
+	GROUP BY BEZEICHNUNG;
+	
+	anzahl NUMBER := 0;
+	
+BEGIN
+	SELECT COUNT(*) INTO anzahl FROM PASSAGIERLISTE WHERE FLUGID = my_flugID;
+	
+	IF anzahl = 0 THEN
+		DBMS_OUTPUT.PUT_LINE('0 Passagiere auf diesem Flug gebucht');
+	
+	ELSE
+	
+		FOR thing IN my_passenengers
+		LOOP
+		DBMS_OUTPUT.PUT_LINE(thing.ANZAHL || ' Passagiere aus ' || thing.BEZEICHNUNG);
+		END LOOP;
+		
+	END IF;  
+
+END;
+/
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE fluege_infos
+AS
+	CURSOR my_flights IS SELECT * FROM FLUG;
+	my_abflug VARCHAR2(255);
+	my_zielort VARCHAR2(255);
+BEGIN
+	FOR one_flight IN my_flights
+	LOOP
+		SELECT FLUGHAFEN.BEZEICHNUNG INTO my_abflug FROM FLUGHAFEN WHERE FLUGHAFENID = one_flight.FLUGHAFEN_ABFLUG;
+		SELECT FLUGHAFEN.BEZEICHNUNG INTO my_zielort FROM FLUGHAFEN WHERE FLUGHAFENID = one_flight.FLUGHAFEN_DESTINATION;
+		DBMS_OUTPUT.PUT_LINE('Flug '|| one_flight.FLUGNUMMER || ': von  ' || my_abflug ||' nach '|| my_zielort || ' am ' || one_flight.abflugzeit);
+		DBMS_OUTPUT.PUT_LINE('**Passagierinfo------------------------');	
+		fluege_infos_hilfe(one_flight.FLUGID);
+
+	END LOOP;
+
+
+END;
+/
+
+BEGIN
+fluege_infos;
+END;
+/

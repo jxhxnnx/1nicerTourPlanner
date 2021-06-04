@@ -216,7 +216,7 @@ namespace _1nicerTourPlanner.ViewModels
 
         public AddLogVM(Tour tour)
         {
-            //handler = new AddLogHandler();
+            handler = new AddLogHandler();
             CurrentTour = tour;
         }
 

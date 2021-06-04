@@ -18,7 +18,6 @@ namespace _1nicerTourPlanner.ViewModels
         private Tour currentTour;
         private string searchName;
         private TourHandler handler = new TourHandler();
-        private string filesFolder;
 
         private ICommand searchCommand;
         private ICommand clearCommand;

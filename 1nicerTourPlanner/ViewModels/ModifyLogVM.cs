@@ -1,6 +1,7 @@
 ﻿using _1nicerTourPlanner.BusinessLayer.LogHandling;
 using _1nicerTourPlanner.Models;
 using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace _1nicerTourPlanner.ViewModels
@@ -233,6 +234,7 @@ namespace _1nicerTourPlanner.ViewModels
                 logID = CurrentLog.logID
             };
             handler.ModifyLog(tlog);
+            MessageBox.Show("Success!");
             log.Info("Log modified");
         }
     }
